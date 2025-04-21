@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>顧客情報検索・推定AIシステムご提案資料</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        .document {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0078D7 0%, #0099FF 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            margin: -30px -30px 30px -30px;
+            border-radius: 8px 8px 0 0;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        h2 {
+            color: #0078D7;
+            border-bottom: 2px solid #0078D7;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        .system-diagram {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .flow {
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+            align-items: center;
+        }
+
+        .flow-item {
+            background-color: #0078D7;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            flex: 1;
+            margin: 0 5px;
+        }
+
+        .flow-arrow {
+            font-size: 24px;
+            color: #0078D7;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th,
+        td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #0078D7;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .feature-boxes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .feature-box {
+            flex: 1;
+            min-width: calc(33% - 20px);
+            background-color: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .cost-section {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .cost-box {
+            flex: 1;
+            background-color: #f0f7ff;
+            border-left: 5px solid #0078D7;
+            padding: 15px;
+        }
+
+        .highlight {
+            color: #0078D7;
+            font-weight: bold;
+        }
+
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin: 40px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            height: 3px;
+            background-color: #0078D7;
+            top: 25px;
+            left: 50px;
+            right: 50px;
+        }
+
+        .timeline-item {
+            position: relative;
+            text-align: center;
+            width: 22%;
+            z-index: 1;
+        }
+
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            background-color: #0078D7;
+            border-radius: 50%;
+            margin: 15px auto;
+        }
+
+        .warning-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .warning-table td {
+            padding: 15px;
+            vertical-align: top;
+        }
+
+        .warning-icon {
+            font-size: 30px;
+            color: #FF9800;
+        }
+
+        .summary-boxes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .summary-box {
+            flex: 1;
+            min-width: calc(50% - 15px);
+            background-color: #f0f7ff;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .summary-icon {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .new-feature {
+            background-color: #e8f5e9;
+            border-left: 5px solid #4CAF50;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .new-feature-title {
+            color: #4CAF50;
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .database-integration {
+            display: flex;
+            justify-content: center;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .db-item {
+            text-align: center;
+            margin: 0 20px;
+            flex: 1;
+        }
+
+        .db-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .connection-line {
+            position: relative;
+            margin: 0 -10px;
+            width: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="document">
+        <div class="header">
+            <h1>顧客情報検索・推定AIシステムご提案資料</h1>
+            <p>ビジネスを加速する次世代顧客分析ソリューション</p>
+        </div>
+
+        <h2>1. システム概要</h2>
+        <p>本提案は、LINEスキマニから取得した「名前・年齢・性別」などの顧客データをもとに、Web検索を活用して、該当人物がどのような人物かを<span
+                class="highlight">自動で情報収集・整形するシステム</span>の構築に関するものです。</p>
+
+        <h2>2. システム構成図</h2>
+        <div class="system-diagram">
+            <div class="flow">
+                <div class="flow-item" style="background-color: #4CAF50;">LINEスキマニ<br>(CSV形式)</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-item" style="background-color: #2196F3;">Pythonバックエンド<br>(FastAPI)</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-item" style="background-color: #FF9800;">外部検索API<br>(Brave Search API)</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-item" style="background-color: #9C27B0; opacity: 0.8;">大規模言語モデル<br>(OpenAI / Claude)
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-item" style="background-color: #F44336;">出力(CSV)＋可視化<br>(スプレッドシート/QuickSight)</div>
+            </div>
+        </div>
+
+        <h2>3. 機能一覧</h2>
+        <table>
+            <tr>
+                <th width="25%">機能</th>
+                <th width="75%">内容</th>
+            </tr>
+            <tr>
+                <td>📥 顧客情報取得</td>
+                <td>LINEスキマニからCSVで取得</td>
+            </tr>
+            <tr>
+                <td>🔍 検索実行</td>
+                <td>Brave Search APIを利用して人物に関連する情報を収集</td>
+            </tr>
+            <tr>
+                <td>🤖 AI要約</td>
+                <td>取得した検索結果をLLMで要約・分類（※後の導入想定）</td>
+            </tr>
+            <tr>
+                <td>📤 結果出力</td>
+                <td>CSV形式で出力：ワーカーの名前、年齢、過去の就業履歴、就業回数、検索結果の内容を記載</td>
+            </tr>
+            <tr>
+                <td>📊 データ可視化</td>
+                <td>Googleスプレッドシート / AWS QuickSightで可視化（レポート用）</td>
+            </tr>
+        </table>
+
+        <h2>4. 活用用途</h2>
+        <div class="feature-boxes">
+            <div class="feature-box">
+                <div class="feature-icon">👥</div>
+                <h3 style="color: #0078D7;">潜在顧客の興味関心・職業などの自動推定</h3>
+                <p>人物名から業界・経歴などを自動収集し顧客像を明確化</p>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">⚡</div>
+                <h3 style="color: #0078D7;">ヒアリングにおける事前情報収集の効率化</h3>
+                <p>商談前の基礎情報収集を自動化し、準備時間を大幅短縮</p>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">📈</div>
+                <h3 style="color: #0078D7;">コンバージョン率推定のためのデータベース構築</h3>
+                <p>顧客属性と成約率の相関を分析し最適化</p>
+            </div>
+        </div>
+
+        <h2>5. 使用予定技術</h2>
+        <table>
+            <tr>
+                <th>項目</th>
+                <th>ツール・技術</th>
+            </tr>
+            <tr>
+                <td>検索API</td>
+                <td><span class="highlight">Brave Search API</span>（初期段階）<br>※効果検証後にGoogle API / Tavily APIへ拡張可能</td>
+            </tr>
+            <tr>
+                <td>AI要約</td>
+                <td>OpenAI GPT-4 / Claude 3（必要に応じて段階的に導入）</td>
+            </tr>
+            <tr>
+                <td>バックエンド</td>
+                <td>Python（FastAPI）</td>
+            </tr>
+            <tr>
+                <td>データ保存</td>
+                <td>AWS等のクラウドシステム（S3など）へ保存<br>ローカルCSVも選択可能</td>
+            </tr>
+            <tr>
+                <td>データ可視化</td>
+                <td>Googleスプレッドシート / AWS QuickSightを活用</td>
+            </tr>
+            <tr>
+                <td>出力形式</td>
+                <td>CSVファイル（ワーカー情報＋検索内容含む）</td>
+            </tr>
+        </table>
+
+        <h2>6. コスト試算</h2>
+        <div class="cost-section">
+            <div class="cost-box">
+                <h3 style="color: #0078D7; margin-top: 0;">プロトタイプ（小規模）</h3>
+                <p>🔍 Brave Search API：無料枠あり（2,000回/月）</p>
+                <p>🖥️ サーバー：無料枠（AWS等）</p>
+                <p>☁️ AWS（S3 + QuickSight）：無料枠あり</p>
+                <p class="highlight">合計目安：月額1,000〜2,000円程度</p>
+                <div style="background-color: #e8f5e9; padding: 10px; margin-top: 10px;">
+                    <p style="margin: 0;">ℹ️ AI要約を導入する場合：<br>OpenAI（GPT-4）：$0.01〜$0.03/件（追加コスト）</p>
+                </div>
+            </div>
+            <div class="cost-box">
+                <h3 style="color: #0078D7; margin-top: 0;">商用運用（中規模）</h3>
+                <p>🔍 Brave API有料プラン or Google API / Tavily API：$25〜/月〜（件数に応じて）</p>
+                <p>🖥️ サーバー：$10〜30/月</p>
+                <p>☁️ AWS（S3 + QuickSight）：$10〜/月（使用量に応じて）</p>
+                <p class="highlight">合計目安：月額1〜2万円程度</p>
+            </div>
+        </div>
+
+        <h2>7. スケジュール例</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <strong>要件定義・設計</strong>
+                <p>1週間</p>
+                <p>ヒアリング・<br>設計案作成</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <strong>開発（PoC）</strong>
+                <p>1〜2週間</p>
+                <p>Brave Search API連携<br>CSV出力構築</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <strong>テスト＆改善</strong>
+                <p>1週間</p>
+                <p>精度検証・<br>API切替検討</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <strong>納品</strong>
+                <p>1日</p>
+                <p>本番用に<br>パッケージ化</p>
+            </div>
+        </div>
+        <h2>8. 追加機能</h2>
+        <p>すでにユーザーであるワーカーを事前に照合<span class="highlight">LINE会員情報連携機能</span>を追加します。   </p>
+
+        <div class="new-feature">
+            <p class="new-feature-title">🔄 LINE会員情報連携機能</p>
+            <p>LINEの会員情報データベースをシステムに組み込み、LINEスキマニの応募データと自動照合することが可能です。これにより、顧客プロフィールの充実化と情報の正確性向上が実現できます。</p>
+
+            <div class="database-integration">
+                <div class="db-item">
+                    <div class="db-icon">👤</div>
+                    <p><strong>LINEスキマニ<br>応募データ</strong></p>
+                </div>
+                <div class="connection-line">
+                    <span style="font-size: 28px;">⟷</span>
+                </div>
+                <div class="db-item">
+                    <div class="db-icon">📱</div>
+                    <p><strong>LINE会員<br>情報DB</strong></p>
+                </div>
+                <div class="connection-line">
+                    <span style="font-size: 28px;">⟹</span>
+                </div>
+                <div class="db-item">
+                    <div class="db-icon">🔍</div>
+                    <p><strong>統合プロフィール<br>生成</strong></p>
+                </div>
+            </div>
+        </div>
+
+
+        <h2>9. まとめ</h2>
+        <div class="summary-boxes">
+            <div class="summary-box">
+                <div class="summary-icon">🎯</div>
+                <p><strong>名前・年齢・性別だけから<br>顧客像を検索で把握可能</strong></p>
+            </div>
+            <div class="summary-box">
+                <div class="summary-icon">🔄</div>
+                <p><strong>検索APIにはBraveを初期導入<br>→ 効果確認後に拡張可能</strong></p>
+            </div>
+            <div class="summary-box">
+                <div class="summary-icon">💰</div>
+                <p><strong>小規模でも月額2,000円台から<br>スタート可能</strong></p>
+            </div>
+            <div class="summary-box">
+                <div class="summary-icon">📊</div>
+                <p><strong>出力はCSV形式＋<br>視覚的なレポートで可視化</strong></p>
+            </div>
+        </div>
+
+        <div
+            style="margin-top: 40px; padding: 20px; background-color: #0078D7; color: white; text-align: center; border-radius: 8px;">
+            <h2 style="color: white; border-bottom: none;">ご検討ありがとうございます</h2>
+            <p>詳細のお打ち合わせをご希望の際は、お気軽にお問い合わせください。</p>
+            <p><strong>お問い合わせ先：stardustdata@gmail.com</strong></p>
+        </div>
+    </div>
+</body>
+
+</html>
