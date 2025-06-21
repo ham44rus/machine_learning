@@ -35,9 +35,16 @@
     \item $X=\begin{pmatrix}x_1' \\ \vdots \\ x_n'\end{pmatrix}$ は標本行列を表す 。
     \item $\bar{x}$ と $S$ は、それぞれ $\mu$ と $\Sigma$ の一貫性のある不偏推定量を提供する 。
     \begin{itemize}
-        \item $n\bar{x}=X'1$ 
-        \item $(n-1)S=X'X-n\bar{x}\bar{x}'$ 
+        \item $n\bar{x}=X'1$ (標本平均ベクトル($\bar{x}$))
+        \item ここで、1は $n$ 次元のベクトルで、すべての要素が1である。\\
+        \item $(n-1)S=X'X-n\bar{x}\bar{x}'$ (標本共分散行列(S))
+        \item Sは母集団の共分散行列の不偏推定量であり、$X'X$ は標本行列の転置と自身の積である。
     \end{itemize}
+
+\end{itemize}
+\end{frame}
+\begin{frame}{7.1 はじめに}
+\begin{itemize}
     \item 7.2節では、$x_1, \dots, x_n$ が独立同分布で $x \sim N_p(\mu, \Sigma)$ かつ $\Sigma>0$ の場合の $\mu$ と $\Sigma$ の最尤推定量が導出される 。
     \item $\bar{x}$ と $S$ の同時分布に関する基本的な結果が命題7.1で証明される 。
     \item 7.3節では、Wishart分布の基本的な特性が研究される 。
@@ -59,6 +66,46 @@
     \begin{equation*}
     = (2\pi)^{-np/2} |\Sigma|^{-n/2} \text{etr}\left[-\frac{1}{2}[V + n(\bar{x} - \mu)(\bar{x} - \mu)']\Sigma^{-1}\right] 
     \end{equation*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{1行目}
+確率変数ベクトル $X = (x_1, \dots, x_p)'$ が平均ベクトル $\mu$ と共分散行列 $\Sigma$ を持つ多変量正規分布に従う場合、その確率密度関数 $f(x)$ は次のように表される。
+\begin{block}{p次元多変量正規分布の確率密度関数 (p.d.f.)}
+\begin{equation*}
+f(x) = (2\pi)^{-p/2} |\Sigma|^{-1/2} \exp\left(-\frac{1}{2}(x - \mu)'\Sigma^{-1}(x - \mu)\right)
+\end{equation*}
+\end{block}
+\begin{itemize}
+\item ここで、$x$ は確率変数ベクトル $X$ がとりうる値を示す $p$ 次元の列ベクトルである。
+\item $\mu$ は、各確率変数の平均値を要素とする $p$ 次元の平均ベクトルである。
+\item $\Sigma$ は、$p \times p$ の共分散行列であり、各確率変数間の分散と共分散を表す対称な正定値行列である。
+\end{itemize}
+\end{frame}
+
+\begin{frame}{2行目}
+exp[tr(⋅)]=etr(⋅)の記法を用いると、確率密度関数は次のように表される 。
+\begin{align*}
+&(x_i - \mu)'\Sigma^{-1}(x_i - \mu) \\
+&= (x_i' - \mu')\Sigma^{-1}(x_i - \mu) \\
+&= x_i'\Sigma^{-1}x_i - x_i'\Sigma^{-1}\mu - \mu'\Sigma^{-1}x_i + \mu'\Sigma^{-1}\mu \\
+&= x_i'\Sigma^{-1}x_i - 2x_i'\Sigma^{-1}\mu + \mu'\Sigma^{-1}\mu \\
+\end{align*}
+\text{ここで、}\(\mu'\Sigma^{-1}x_i\) はスカラー値であり、スカラーの転置は自分自身なので、\(\mu'\Sigma^{-1}x_i = (x_i'\Sigma^{-1}\mu)'\) です。\\
+したがって、\(x_i'\Sigma^{-1}\mu\) と \(\mu'\Sigma^{-1}x_i\) は同じスカラー値を表します。
+\end{frame}
+
+\begin{frame}{2行目}
+\begin{itemize}
+    \item $\mu'$は平均ベクトル$\mu$の転置を表し、$\mu$はp次元の列ベクトルなので、$\mu'$は1行p列の行ベクトルになります。
+    \item $\Sigma^{-1}$は共分散行列$\Sigma$の逆行列を表し、$\Sigma$はp*pの正方行列なので、$\Sigma^{-1}$もp*pの正方行列になります。
+    \item $x_i$はp次元の列ベクトルであり、$x_i'$はその転置で1行p列の行ベクトルになります。
+\end{itemize}
+よって、$(x_i - \mu)' \Sigma^{-1} (x_i - \mu)$はスカラー値であります。
+\end{frame}
+
+\begin{frame}{7.2 $\bar{x}$ と $S$ の同時分布}
+\begin{itemize}
     \item $(X'X, \bar{x})$ (または $(S, \bar{x})$ のような一対一関数) は、$(\Sigma, \mu)$ の最小十分完全統計量である 。
     \item Rao-Blackwell/Lehmann-Scheff\'eの定理により、不偏推定量の中で $(\bar{x}, S)$ は最小分散を持つ 。
     \item $n-1 \ge p$ の場合の最尤推定量 (MLE) $\hat{\mu}$ と $\hat{\Sigma}$ を得るには、対数尤度関数を最小化する 。

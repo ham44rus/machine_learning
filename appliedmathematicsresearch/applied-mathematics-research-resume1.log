@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.19)  21 JUN 2025 14:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.19)  21 JUN 2025 18:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -891,34 +891,43 @@ File: c70min.fdx 2021/10/16 4.8.5
 {/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./applied-mathematics-research-resume1.toc) [2
 
 ]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 46.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 45.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 46.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 45.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 46.
+LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 45.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mathkerncmss.
 ) [3
 
-]
-Overfull \vbox (58.36604pt too high) detected at line 70
- []
-
-[4
+] [4
 
 ] [5
 
 ] [6
 
-] [7
+]
+Missing character: There is no Å in font udmj22!
+Missing character: There is no Å in font udmj22!
+[7
 
 ] [8
 
 ] [9
+
+] [10
+
+] [11
+
+] [12
+
+] [13
+
+] [14
 
 ]
 \tf@nav=\write6
@@ -935,18 +944,18 @@ Package rerunfilecheck Info: File `applied-mathematics-research-resume1.out' has
 (rerunfilecheck)             Checksum: 17877AD0A14A592220C0CC8234B36DCB;94.
  ) 
 Here is how much of TeX's memory you used:
- 25066 strings out of 476025
- 479422 string characters out of 5790017
- 1872388 words of memory out of 5000000
- 44650 multiletter control sequences out of 15000+600000
- 596621 words of font info for 339 fonts, out of 8000000 for 9000
+ 25294 strings out of 476025
+ 482307 string characters out of 5790017
+ 1868388 words of memory out of 5000000
+ 44765 multiletter control sequences out of 15000+600000
+ 621294 words of font info for 437 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,15n,122p,528b,1425s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,15n,122p,528b,1435s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjhira.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjka.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjkata.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjkb.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjkc.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjkd.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjke.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjkf.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjkg.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjkh.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjki.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjkj.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjkk.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjkl.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjsy.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on applied-mathematics-research-resume1.pdf (9 pages, 263082 bytes).
+Output written on applied-mathematics-research-resume1.pdf (14 pages, 283828 bytes).
 PDF statistics:
- 361 PDF objects out of 1000 (max. 8388607)
- 192 compressed objects within 2 object streams
- 20 named destinations out of 1000 (max. 500000)
- 495 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 411 PDF objects out of 1000 (max. 8388607)
+ 225 compressed objects within 3 object streams
+ 30 named destinations out of 1000 (max. 500000)
+ 551 words of extra memory for PDF output out of 10000 (max. 10000000)
 
