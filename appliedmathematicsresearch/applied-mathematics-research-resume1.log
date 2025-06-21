@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.19)  21 JUN 2025 13:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.19)  21 JUN 2025 14:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -805,6 +805,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 Package hyperref Info: Link coloring OFF on input line 14.
+ (./applied-mathematics-research-resume1.out) (./applied-mathematics-research-resume1.out)
 \@outlinefile=\write5
 \openout5 = `applied-mathematics-research-resume1.out'.
 
@@ -887,9 +888,7 @@ File: c70min.fd 2021/10/16 4.8.5
 File: c70min.fdx 2021/10/16 4.8.5
 ) [1
 
-{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-No file applied-mathematics-research-resume1.toc.
-[2
+{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./applied-mathematics-research-resume1.toc) [2
 
 ]
 LaTeX Font Info:    Trying to load font information for U+msa on input line 46.
@@ -919,7 +918,11 @@ Overfull \vbox (58.36604pt too high) detected at line 70
 
 ] [8
 
-] [9
+]
+Overfull \vbox (18.89963pt too high) detected at line 144
+ []
+
+[9
 
 ]
 \tf@nav=\write6
@@ -931,47 +934,23 @@ Overfull \vbox (58.36604pt too high) detected at line 70
 \tf@snm=\write8
 \openout8 = `applied-mathematics-research-resume1.snm'.
 
-
-
-/Users/rintaro/Downloads/Github_private/machine_learning/appliedmathematicsresearch/applied-mathematics-research-resume1.tex:139: LaTeX Error: \begin{CJK} on input line 16 ended by \end{document}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.139 \end{document}
-                    
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-(./applied-mathematics-research-resume1.aux)
-
-Package rerunfilecheck Warning: File `applied-mathematics-research-resume1.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `applied-mathematics-research-resume1.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  17877AD0A14A592220C0CC8234B36DCB;94.
- )
-(\end occurred inside a group at level 1)
-
-### semi simple group (level 1) entered at line 16 (\begingroup)
-### bottom level 
+ (./applied-mathematics-research-resume1.aux)
+Package rerunfilecheck Info: File `applied-mathematics-research-resume1.out' has not changed.
+(rerunfilecheck)             Checksum: 17877AD0A14A592220C0CC8234B36DCB;94.
+ ) 
 Here is how much of TeX's memory you used:
- 25022 strings out of 476025
- 477309 string characters out of 5790017
- 1872388 words of memory out of 5000000
- 44609 multiletter control sequences out of 15000+600000
- 593778 words of font info for 330 fonts, out of 8000000 for 9000
+ 25097 strings out of 476025
+ 480779 string characters out of 5790017
+ 1873388 words of memory out of 5000000
+ 44682 multiletter control sequences out of 15000+600000
+ 596301 words of font info for 338 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,15n,122p,528b,1337s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjhira.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjka.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjkata.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjkb.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjkc.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjkd.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjke.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjkf.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjkg.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjkh.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjki.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjkj.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjkk.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjkl.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjsy.pfb>
-Output written on applied-mathematics-research-resume1.pdf (9 pages, 264975 bytes).
+ 128i,15n,122p,528b,1425s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjhira.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjka.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjkata.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjkb.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjkc.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjkd.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjke.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjkf.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjkg.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjkh.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjki.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjkj.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjkk.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjkl.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjsy.pfb>
+Output written on applied-mathematics-research-resume1.pdf (9 pages, 268868 bytes).
 PDF statistics:
- 294 PDF objects out of 1000 (max. 8388607)
- 156 compressed objects within 2 object streams
+ 417 PDF objects out of 1000 (max. 8388607)
+ 219 compressed objects within 3 object streams
  20 named destinations out of 1000 (max. 500000)
- 299 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 675 words of extra memory for PDF output out of 10000 (max. 10000000)
 

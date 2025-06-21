@@ -81,59 +81,68 @@
 \end{frame}
 
 \begin{frame}{7.2 $\bar{x}$ と $S$ の同時分布 (続き)}
+\begin{block}{定義 7.1 Wishart分布}
+$W \sim W_p(m)$ ならば $W \overset{d}{=} \sum_{i=1}^{m} z_i z_i'$, ここで $z_i$ は独立同分布で $N_p(0, I)$ に従う。\\
+$V \sim W_p(m, \Sigma)$ ならば $V \overset{d}{=} AWA'$, ここで $\Sigma=AA'$ かつ $W \sim W_p(m)$。
+\end{block}
+
+\begin{block}{命題 7.1}
+$x_i$ が独立同分布で $N_p(\mu, \Sigma)$ に従う場合 ($i=1, \dots, n$)、
 \begin{itemize}
-    \item \textbf{定義 7.1 Wishart分布:}
-    \begin{itemize}
-        \item $W \sim W_p(m)$ ならば $W \overset{d}{=} \sum_{i=1}^{m} z_i z_i'$, ここで $z_i$ は独立同分布で $N_p(0, I)$ に従う 。
-        \item $V \sim W_p(m, \Sigma)$ ならば $V \overset{d}{=} AWA'$, ここで $\Sigma=AA'$ かつ $W \sim W_p(m)$ 。
-    \end{itemize}
-    \item \textbf{命題 7.1:} $x_i$ が独立同分布で $N_p(\mu, \Sigma)$ に従う場合 ($i=1, \dots, n$)、
-    \begin{itemize}
-        \item $\bar{x} \sim N_p(\mu, \Sigma/n)$ 
-        \item $(n-1)S \sim W_p(n-1, \Sigma)$ 
-        \item $\bar{x} \perp S$ 
-    \end{itemize}
-    \item Wishart分布の密度関数を明示的に得ることも可能だが、その基本的な性質を理解することが重要である 。
+    \item $\bar{x} \sim N_p(\mu, \Sigma/n)$ 
+    \item $(n-1)S \sim W_p(n-1, \Sigma)$ 
+    \item $\bar{x} \perp S$ 
 \end{itemize}
+\end{block}
 \end{frame}
 
 \begin{frame}{7.3 Wishart分布の性質}
-\begin{itemize}
-    \item \textbf{命題 7.2:} $W \sim W_p(m)$ ならば $\text{tr } W \sim \chi^2_{mp}$ 。
-    \item \textbf{証明:} $W \sim W_p(m)$ の定義より、$\text{tr } W \overset{d}{=} \text{tr } \sum_{i=1}^{m} z_i z_i' = \sum_{i=1}^{m} z_i' z_i$ 。
-    \item $z_i$ は独立同分布で $N_p(0, I)$ に従うので、命題4.4より $z_i' z_i \sim \chi^2_p$ 。
-    \item 系3.1より $\text{tr } W \sim \chi^2_{mp}$ 。
-\end{itemize}
+\begin{block}{命題 7.2}
+$W \sim W_p(m)$ ならば $\text{tr } W \sim \chi^2_{mp}$。
+\end{block}
+\begin{block}{証明}
+$W \sim W_p(m)$ の定義より、$\text{tr } W \overset{d}{=} \text{tr } \sum_{i=1}^{m} z_i z_i' = \sum_{i=1}^{m} z_i' z_i$。\\
+$z_i$ は独立同分布で $N_p(0, I)$ に従うので、命題4.4より $z_i' z_i \sim \chi^2_p$。\\
+系3.1より $\text{tr } W \sim \chi^2_{mp}$。
+\end{block}
 \end{frame}
 
 \begin{frame}{7.3 Wishart分布の性質 (続き)}
-\begin{itemize}
-    \item $V \sim W_p(m, \Sigma)$ が確率1で非特異であるかを決定するのに有用な補題は以下の通り 。
-    \item \textbf{補題 7.1:} $Z = (z_{ij}) \in R_n^n$ が独立同分布の $N(0, 1)$ に従う場合、$P(|Z| = 0) = 0$ 。
-    \item \textbf{証明:} $n=1$ の場合は $z_{11}$ が絶対連続分布を持つため、結果は成立する 。
-    \item $Z$ を以下のように分割する 。
-    \begin{equation*}
-    Z = \begin{pmatrix} z_{11} & z_{12}' \\ z_{21} & Z_{22} \end{pmatrix} 
-    \end{equation*}
-    \item $Z_{22} \in R_{n-1}^{n-1}$ に対して結果が成立すると仮定すると、$P(|Z|=0) = P(|Z|=0, |Z_{22}| \ne 0) + P(|Z|=0, |Z_{22}|=0)$ 
-    \begin{align*}
-    &= P(z_{11} = z_{12}'Z_{22}^{-1}z_{21}, |Z_{22}| \ne 0) \\
-    &= E[P(z_{11} = z_{12}'Z_{22}^{-1}z_{21}, |Z_{22}| \ne 0 | z_{12}, z_{21}, Z_{22})] = 0 \text{。} 
-    \end{align*}
-\end{itemize}
+\begin{block}{補題 7.1}
+$Z = (z_{ij}) \in R_n^n$ が独立同分布の $N(0, 1)$ に従う場合、$P(|Z| = 0) = 0$。
+\end{block}
+\begin{block}{証明}
+$n=1$ の場合は $z_{11}$ が絶対連続分布を持つため、結果は成立する。\\
+$Z$ を以下のように分割する。
+\begin{equation*}
+Z = \begin{pmatrix} z_{11} & z_{12}' \\ z_{21} & Z_{22} \end{pmatrix} 
+\end{equation*}
+$Z_{22} \in R_{n-1}^{n-1}$ に対して結果が成立すると仮定すると、$P(|Z|=0) = P(|Z|=0, |Z_{22}| \ne 0) + P(|Z|=0, |Z_{22}|=0)$ 
+\begin{align*}
+&= P(z_{11} = z_{12}'Z_{22}^{-1}z_{21}, |Z_{22}| \ne 0) \\
+&= E[P(z_{11} = z_{12}'Z_{22}^{-1}z_{21}, |Z_{22}| \ne 0 | z_{12}, z_{21}, Z_{22})] = 0 \text{。} 
+\end{align*}
+\end{block}
 \end{frame}
 
 \begin{frame}{7.3 Wishart分布の性質 (続き)}
-\begin{itemize}
-    \item \textbf{系 7.1:} $Z = (z_{ij}) \in R_n^n$ が独立同分布の $N(0, 1)$ に従う場合、$P(|Z| = t) = 0, \forall t$ 。
-    \item \textbf{証明:} $P(|Z| = t) = E[P(z_{11} = z_{12}'Z_{22}^{-1}z_{21} + t/|Z_{22}|, |Z_{22}| \ne 0 | z_{12}, z_{21}, Z_{22})] = 0$ 。
-    \item 補題7.1と系7.1は、$Z$ が任意の絶対連続分布を持つ場合にも有効である 。
-    \item \textbf{命題 7.3:} $W \sim W_p(m)$ かつ $m \ge p$ ならば、$W$ は確率1で非特異である 。
-    \item \textbf{証明:} $W \overset{d}{=} Z'Z$ であり、$Z' = (z_1, \dots, z_m)$ かつ $z_i$ は独立同分布の $N_p(0, I)$ に従う 。
-    \item $\text{rank } W \overset{d}{=} \text{rank } Z'Z = \text{rank } Z \ge \text{rank } (z_1, \dots, z_p)$ は確率1で $p$ となる 。
-    \item したがって、$\text{rank } W$ は確率1で $p$ となる 。
-\end{itemize}
+\begin{block}{系 7.1}
+$Z = (z_{ij}) \in R_n^n$ が独立同分布の $N(0, 1)$ に従う場合、$P(|Z| = t) = 0, \forall t$。
+\end{block}
+\begin{block}{証明}
+$P(|Z| = t) = E[P(z_{11} = z_{12}'Z_{22}^{-1}z_{21} + t/|Z_{22}|, |Z_{22}| \ne 0 | z_{12}, z_{21}, Z_{22})] = 0$。\\
+補題7.1と系7.1は、$Z$ が任意の絶対連続分布を持つ場合にも有効である。
+\end{block}
+\begin{block}{命題 7.3}
+$W \sim W_p(m)$ かつ $m \ge p$ ならば、$W$ は確率1で非特異である。
+\end{block}
+\begin{block}{証明}
+$W \overset{d}{=} Z'Z$ であり、$Z' = (z_1, \dots, z_m)$ かつ $z_i$ は独立同分布の $N_p(0, I)$ に従う。\\
+$\text{rank } W \overset{d}{=} \text{rank } Z'Z = \text{rank } Z \ge \text{rank } (z_1, \dots, z_p)$ は確率1で $p$ となる。\\
+したがって、$\text{rank } W$ は確率1で $p$ となる。
+\end{block}
 \end{frame}
 
-
+% ここに新しいスライドや内容を追加できます
+\end{CJK}
 \end{document}
