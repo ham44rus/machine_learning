@@ -16,7 +16,7 @@
 \begin{CJK}{UTF8}{min}
 
 \title{Wishart分布とその性質}
-\subtitle{線形代数の基礎概念}
+\subtitle{多変量正規分布の推定とBox-Cox変換}
 \author{山北倫太郎}
 \date{\today}
 
@@ -135,15 +135,5 @@
 \end{itemize}
 \end{frame}
 
-\begin{frame}{7.3 Wishart分布の性質 (続き)}
-\begin{itemize}
-    \item \textbf{系 7.2:} $V \sim W_p(m, \Sigma)$ かつ $m \ge p$ かつ $|\Sigma| \ne 0$ ならば、$|V| \ne 0$ は確率1で成立する 。
-    \item EatonとPerlman (1973)は、標本分散行列 $S$ が独立な観測値（必ずしも正規分布や独立同分布である必要はない）に対して確率1で非特異であることを示した 。
-    \item Wishart行列の線形変換に関する結果は以下の通りである 。
-    \item \textbf{命題 7.4:} $V \sim W_p(m, \Sigma)$ かつ $B \in R_p^q$ ならば、$BVB' \sim W_q(m, B\Sigma B')$ 。
-    \item \textbf{証明:} $V \overset{d}{=} AWA'$ であり、$W \sim W_p(m)$ かつ $\Sigma=AA'$ 。
-    \item したがって、$BVB' \overset{d}{=} (BA)W(BA)' \sim W_q(m, BAA'B')$ 。
-\end{itemize}
-\end{frame}
 
 \end{document}
