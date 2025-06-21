@@ -96,53 +96,49 @@ $x_i$ が独立同分布で $N_p(\mu, \Sigma)$ に従う場合 ($i=1, \dots, n$)
 \end{block}
 \end{frame}
 
-\begin{frame}{7.3 Wishart分布の性質}
-\begin{block}{命題 7.2}
-$W \sim W_p(m)$ ならば $\text{tr } W \sim \chi^2_{mp}$。
-\end{block}
-\begin{block}{証明}
-$W \sim W_p(m)$ の定義より、$\text{tr } W \overset{d}{=} \text{tr } \sum_{i=1}^{m} z_i z_i' = \sum_{i=1}^{m} z_i' z_i$。\\
-$z_i$ は独立同分布で $N_p(0, I)$ に従うので、命題4.4より $z_i' z_i \sim \chi^2_p$。\\
-系3.1より $\text{tr } W \sim \chi^2_{mp}$。
-\end{block}
-\end{frame}
-
-\begin{frame}{7.3 Wishart分布の性質 (続き)}
+\begin{frame}{7.3 Wishart分布の性質 - 補題}
 \begin{block}{補題 7.1}
-$Z = (z_{ij}) \in R_n^n$ が独立同分布の $N(0, 1)$ に従う場合、$P(|Z| = 0) = 0$。
+$Z = (z_{ij}) \in \mathbb{R}^{n \times n}$ が独立同分布の $N(0, 1)$ に従う場合、$P(|Z| = 0) = 0$。
 \end{block}
-\begin{block}{証明}
+
 $n=1$ の場合は $z_{11}$ が絶対連続分布を持つため、結果は成立する。\\
 $Z$ を以下のように分割する。
-\begin{equation*}
-Z = \begin{pmatrix} z_{11} & z_{12}' \\ z_{21} & Z_{22} \end{pmatrix} 
-\end{equation*}
-$Z_{22} \in R_{n-1}^{n-1}$ に対して結果が成立すると仮定すると、$P(|Z|=0) = P(|Z|=0, |Z_{22}| \ne 0) + P(|Z|=0, |Z_{22}|=0)$ 
-\begin{align*}
-&= P(z_{11} = z_{12}'Z_{22}^{-1}z_{21}, |Z_{22}| \ne 0) \\
-&= E[P(z_{11} = z_{12}'Z_{22}^{-1}z_{21}, |Z_{22}| \ne 0 | z_{12}, z_{21}, Z_{22})] = 0 \text{。} 
-\end{align*}
-\end{block}
+\[
+Z = \begin{pmatrix} z_{11} & z_{12}' \\ z_{21} & Z_{22} \end{pmatrix}
+\]
+$Z_{22} \in \mathbb{R}^{(n-1) \times (n-1)}$ に対して結果が成立すると仮定すると、
+\[
+P(|Z|=0) = P(|Z|=0, |Z_{22}| \ne 0) + P(|Z|=0, |Z_{22}|=0)
+\]
+\[
+= P(z_{11} = z_{12}'Z_{22}^{-1}z_{21}, |Z_{22}| \ne 0)
+\]
+\[
+= E[P(z_{11} = z_{12}'Z_{22}^{-1}z_{21}, |Z_{22}| \ne 0 | z_{12}, z_{21}, Z_{22})] = 0
+\]
 \end{frame}
 
-\begin{frame}{7.3 Wishart分布の性質 (続き)}
+\begin{frame}{7.3 Wishart分布の性質 - 系}
 \begin{block}{系 7.1}
-$Z = (z_{ij}) \in R_n^n$ が独立同分布の $N(0, 1)$ に従う場合、$P(|Z| = t) = 0, \forall t$。
+$Z = (z_{ij}) \in \mathbb{R}^{n \times n}$ が独立同分布の $N(0, 1)$ に従う場合、$P(|Z| = t) = 0, \forall t$。
 \end{block}
-\begin{block}{証明}
+
 $P(|Z| = t) = E[P(z_{11} = z_{12}'Z_{22}^{-1}z_{21} + t/|Z_{22}|, |Z_{22}| \ne 0 | z_{12}, z_{21}, Z_{22})] = 0$。\\
 補題7.1と系7.1は、$Z$ が任意の絶対連続分布を持つ場合にも有効である。
-\end{block}
+\end{frame}
+
+\begin{frame}{7.3 Wishart分布の性質 - 命題}
 \begin{block}{命題 7.3}
 $W \sim W_p(m)$ かつ $m \ge p$ ならば、$W$ は確率1で非特異である。
 \end{block}
-\begin{block}{証明}
+
 $W \overset{d}{=} Z'Z$ であり、$Z' = (z_1, \dots, z_m)$ かつ $z_i$ は独立同分布の $N_p(0, I)$ に従う。\\
 $\text{rank } W \overset{d}{=} \text{rank } Z'Z = \text{rank } Z \ge \text{rank } (z_1, \dots, z_p)$ は確率1で $p$ となる。\\
 したがって、$\text{rank } W$ は確率1で $p$ となる。
-\end{block}
 \end{frame}
 
 % ここに新しいスライドや内容を追加できます
 \end{CJK}
 \end{document}
+
+

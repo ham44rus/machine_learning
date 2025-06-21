@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1750484035 "/Users/rintaro/Downloads/Github_private/machine_learning/appliedmathematicsresearch/applied-mathematics-research-resume1.tex" "applied-mathematics-research-resume1.pdf" "applied-mathematics-research-resume1" 1750484038 0
-  "/Users/rintaro/Downloads/Github_private/machine_learning/appliedmathematicsresearch/applied-mathematics-research-resume1.tex" 1750484031 6592 27fc73523f278d1fe095d4bfc1d81f5a ""
+["pdflatex"] 1750484562 "/Users/rintaro/Downloads/Github_private/machine_learning/appliedmathematicsresearch/applied-mathematics-research-resume1.tex" "applied-mathematics-research-resume1.pdf" "applied-mathematics-research-resume1" 1750484566 0
+  "/Users/rintaro/Downloads/Github_private/machine_learning/appliedmathematicsresearch/applied-mathematics-research-resume1.tex" 1750484559 6082 7bbb2665535f9fcde62afa70759c8beb ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1246382020 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1246382020 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
@@ -158,6 +158,7 @@
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb" 1248133631 32587 1788b0c1c5b39540c96f5e42ccd6dae8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1248133631 32716 08e384dc442464e7285e891af9f45947 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1248133631 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
+  "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjhira.pfb" 1136849748 40487 a14690d62f889a1d5353e1682620cc9b ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjka.pfb" 1136849748 111790 3e59d0ab87baa3ad1630f9c5adc91637 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/wadalab/dmj/dmjkata.pfb" 1136849748 34255 bac5d3aa57ab4f72e4235999f75875c7 ""
@@ -408,11 +409,11 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1692411311 4623355 b8cad38412faebe1ce5b780a45db67bd ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1692411236 7883452 2387c2ac32dd1428b01388fd300d7c20 ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
-  "applied-mathematics-research-resume1.aux" 1750484038 2258 cb431a50cf82384656e8164474a17794 "pdflatex"
-  "applied-mathematics-research-resume1.nav" 1750484038 1169 71ca3af2399463139bbd2f9bd3e1c8d3 "pdflatex"
-  "applied-mathematics-research-resume1.out" 1750484038 94 17877ad0a14a592220c0cc8234b36dcb "pdflatex"
-  "applied-mathematics-research-resume1.tex" 1750484031 6592 27fc73523f278d1fe095d4bfc1d81f5a ""
-  "applied-mathematics-research-resume1.toc" 1750484038 49 9a0650156a2c5022dd7ff1ec7d2dd912 "pdflatex"
+  "applied-mathematics-research-resume1.aux" 1750484565 2258 cb431a50cf82384656e8164474a17794 "pdflatex"
+  "applied-mathematics-research-resume1.nav" 1750484565 1169 71ca3af2399463139bbd2f9bd3e1c8d3 "pdflatex"
+  "applied-mathematics-research-resume1.out" 1750484565 94 17877ad0a14a592220c0cc8234b36dcb "pdflatex"
+  "applied-mathematics-research-resume1.tex" 1750484559 6082 7bbb2665535f9fcde62afa70759c8beb ""
+  "applied-mathematics-research-resume1.toc" 1750484565 49 9a0650156a2c5022dd7ff1ec7d2dd912 "pdflatex"
   (generated)
   "applied-mathematics-research-resume1.aux"
   "applied-mathematics-research-resume1.log"
