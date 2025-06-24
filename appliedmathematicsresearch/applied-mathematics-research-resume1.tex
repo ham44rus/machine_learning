@@ -91,8 +91,23 @@ exp[tr(⋅)]=etr(⋅)の記法を用いると、確率密度関数は次のよ�
 &= x_i'\Sigma^{-1}x_i - x_i'\Sigma^{-1}\mu - \mu'\Sigma^{-1}x_i + \mu'\Sigma^{-1}\mu \\
 &= x_i'\Sigma^{-1}x_i - 2x_i'\Sigma^{-1}\mu + \mu'\Sigma^{-1}\mu \\
 \end{align*}
-\text{ここで、}\(\mu'\Sigma^{-1}x_i\) はスカラー値であり、スカラーの転置は自分自身なので、\(\mu'\Sigma^{-1}x_i = (x_i'\Sigma^{-1}\mu)'\) です。\\
+\begin{itemize}
+\item \text{ここで、}\(\mu'\Sigma^{-1}x_i\) はスカラー値であり、スカラーの転置は自分自身なので、\(\mu'\Sigma^{-1}x_i = (x_i'\Sigma^{-1}\mu)'\) です。\\
 したがって、\(x_i'\Sigma^{-1}\mu\) と \(\mu'\Sigma^{-1}x_i\) は同じスカラー値を表します。
+\end{itemize}
+\end{frame}\begin{frame}{2行目}
+exp[tr(⋅)]=etr(⋅)の記法を用いると、確率密度関数は次のように表される 。
+
+\begin{align*}
+&(x_i - \mu)'\Sigma^{-1}(x_i - \mu) \\
+&= (x_i' - \mu')\Sigma^{-1}(x_i - \mu) \\
+&= x_i'\Sigma^{-1}x_i - x_i'\Sigma^{-1}\mu - \mu'\Sigma^{-1}x_i + \mu'\Sigma^{-1}\mu \\
+&= x_i'\Sigma^{-1}x_i - 2x_i'\Sigma^{-1}\mu + \mu'\Sigma^{-1}\mu \\
+\end{align*}
+
+ここで、$\mu'\Sigma^{-1}x_i$ はスカラー値であり、スカラーの転置は自分自身なので、$\mu'\Sigma^{-1}x_i = (x_i'\Sigma^{-1}\mu)'$ です。\\
+したがって、$x_i'\Sigma^{-1}\mu$ と $\mu'\Sigma^{-1}x_i$ は同じスカラー値を表します。
+
 \end{frame}
 
 \begin{frame}{2行目}
@@ -101,7 +116,117 @@ exp[tr(⋅)]=etr(⋅)の記法を用いると、確率密度関数は次のよ�
     \item $\Sigma^{-1}$は共分散行列$\Sigma$の逆行列を表し、$\Sigma$はp*pの正方行列なので、$\Sigma^{-1}$もp*pの正方行列になります。
     \item $x_i$はp次元の列ベクトルであり、$x_i'$はその転置で1行p列の行ベクトルになります。
 \end{itemize}
-よって、$(x_i - \mu)' \Sigma^{-1} (x_i - \mu)$はスカラー値であります。
+よって、$(x_i - \mu)' \Sigma^{-1} (x_i - \mu)$はスカラー値であります。\\
+また、$\mu'\Sigma^{-1}\mu\text{は、}e^{-\frac{1}{2}n\mu'\Sigma^{-1}\mu}$の形で指数関数に含まれます。
+\end{frame}
+
+\begin{frame}{1項目}
+    \begin{itemize}
+        \item 行列のトレースは、行列の対角成分の総和であり、$\text{tr}(A) = \sum_{i} a_{ii}$ で定義される。     \begin{block}{トレースの性質}
+            \begin{itemize}
+                \item $\text{tr}(AB) = \text{tr}(BA)$
+                \item $\text{tr}(A) = \sum_{i=1}^{n} a_{ii}$, ここで $A = (a_{ij})$ は $n \times n$ 行列である。
+            \end{itemize}
+        \end{block}
+    \end{itemize}
+    \begin{align*}
+    \sum_{i=1}^n x_i'\Sigma^{-1}x_i &= \sum_{i=1}^n \text{tr}\left(\Sigma^{-1} x_i x_i'\right) \\
+    &= \text{tr}\left(\Sigma^{-1} \sum_{i=1}^n x_i x_i'\right) \\
+    &= \text{tr}(\Sigma^{-1} X'X)
+    \end{align*}
+\end{frame}
+\begin{frame}{1項目}
+    \begin{itemize}
+        \item $X=\begin{pmatrix}x_1' \\ \vdots \\ x_n'\end{pmatrix}$ であるから、$X'X = \sum_{i=1}^n x_ix_i'$ となる。
+        \item ここで、$x_i'$ は $x_i$ の転置を表し、$x_ix_i'$ は $x_i$ の外積を表す。
+        \item $\Sigma^{-1}$ は共分散行列の逆行列であり、$x_ix_i'$ は $x_i$ の外積を表す。        
+    \end{itemize}
+\end{frame}
+\begin{frame}{第2項目}
+    \begin{align*}
+    \sum_{i=1}^n -2x_i'\Sigma^{-1}\mu 
+    &= -2(\sum_{i=1}^n x_i') \Sigma^{-1} \mu \\
+    &= -2\left(\sum_{i=1}^n x_i'\right) \Sigma^{-1} \mu \\
+    &\sum_{i=1}^n x_i' =  (x_1' + \cdots + x_n') = (n\bar{x})'\text{であるので} \\
+    &= -2 (n\bar{x})' \Sigma^{-1} \mu \\
+    &= -2 n\bar{x}' \Sigma^{-1} \mu \\
+    \end{align*}
+    %\begin{itemize}
+     %   \item ここで、$\sum_{i=1}^n x_i' = (x_1' + \cdots + x_n') = n\bar{x}'$ である。
+      %  \item $\text{tr}(AB) = \text{tr}(BA)$ の性質を利用している。
+    %\end{itemize}
+\end{frame}
+
+\begin{frame}{第3項目}
+\begin{align*}
+\sum_{i=1}^n \mu'\Sigma^{-1}\mu\text{はスカラー値であり、これが n 回足されます。}\\
+\sum_{i=1}^n \mu'\Sigma^{-1}\mu 
+= n\mu'\Sigma^{-1}\mu
+\end{align*}
+
+したがって、これら3つの項を合わせると、指数部分は次のようになります。
+\begin{align*}
+\sum_{i=1}^n (x_i - \mu)'\Sigma^{-1}(x_i - \mu)
+&= \sum_{i=1}^n x_i'\Sigma^{-1}x_i - 2n\bar{x}'\Sigma^{-1}\mu + n\mu'\Sigma^{-1}\mu \\
+&= \mathrm{tr}(\Sigma^{-1} X'X) - 2n\bar{x}'\Sigma^{-1}\mu + n\mu'\Sigma^{-1}\mu
+\end{align*}
+
+\end{frame}
+
+\begin{frame}{まとめると}
+    \begin{align*}
+    & -\frac{1}{2} \left[ \mathrm{tr}(\Sigma^{-1} X'X) - 2n\bar{x}'\Sigma^{-1}\mu + n\mu'\Sigma^{-1}\mu \right] \\
+    &= -\frac{1}{2} \mathrm{tr}(\Sigma^{-1} X'X) + n\bar{x}'\Sigma^{-1}\mu - \frac{n}{2} \mu'\Sigma^{-1}\mu
+    \end{align*}
+    となり、2行目の指数部分と完全に一致します。
+\end{frame}
+
+\begin{frame}{3行目}
+\begin{align*}
+\sum_{i=1}^n (x_i - \mu)' \Sigma^{-1} (x_i - \mu)
+&= \sum_{i=1}^n \left( (x_i - \bar{x}) + (\bar{x} - \mu) \right)' \Sigma^{-1} \left( (x_i - \bar{x}) + (\bar{x} - \mu) \right) \\
+&= \sum_{i=1}^n (x_i - \bar{x})' \Sigma^{-1} (x_i - \bar{x}) + \sum_{i=1}^n (\bar{x} - \mu)' \Sigma^{-1} (\bar{x} - \mu) \\
+&\quad + 2\sum_{i=1}^n (x_i - \bar{x})' \Sigma^{-1} (\bar{x} - \mu)\\
+\end{align*}
+\end{frame}
+
+\begin{frame}{3行目 (続き)}
+ここで、最後の項は
+\[
+2\left(\sum_{i=1}^n (x_i - \bar{x})\right)' \Sigma^{-1} (\bar{x} - \mu) = 2(n\bar{x} - n\bar{x})' \Sigma^{-1} (\bar{x} - \mu) = 0
+\]
+となるので、
+
+\begin{align*}
+\sum_{i=1}^n (x_i - \mu)' \Sigma^{-1} (x_i - \mu)
+= \sum_{i=1}^n (x_i - \bar{x})' \Sigma^{-1} (x_i - \bar{x}) + n(\bar{x} - \mu)' \Sigma^{-1} (\bar{x} - \mu)\\
+V = (n-1)S = \sum_{i=1}^n (x_i - \bar{x})(x_i - \bar{x})'
+\end{align*}
+\end{frame}
+
+\begin{frame}{証明}
+\begin{block}{証明}
+\[
+\begin{aligned}
+\sum_{i=1}^n (x_i - \bar{x})(x_i - \bar{x})'
+&= \sum_{i=1}^n \left[ x_i x_i' - x_i \bar{x}' - \bar{x} x_i' + \bar{x} \bar{x}' \right] \\
+&= \sum_{i=1}^n x_i x_i' - \sum_{i=1}^n x_i \bar{x}' - \sum_{i=1}^n \bar{x} x_i' + \sum_{i=1}^n \bar{x} \bar{x}' \\
+&= X'X - n\bar{x} \bar{x}' - n\bar{x} \bar{x}' + n\bar{x} \bar{x}' \\
+&= X'X - n\bar{x} \bar{x}' \\
+&= (n-1)S
+\end{aligned}
+\]
+したがって、$\sum_{i=1}^n (x_i - \bar{x})(x_i - \bar{x})' = (n-1)S = V$ である。
+\end{block}
+\end{frame}
+
+\begin{frame}{証明（各項の詳細な計算）}
+\begin{itemize}
+    \item $\sum_{i=1}^{n}\bm{x}_{i}\bm{x}_{i}^{\prime}$: 標本行列 $X$ は各行が $\bm{x}_{i}^{\prime}$（$\bm{x}_{i}$ は列ベクトル）として定義されるので、$X=\begin{pmatrix}\bm{x}_{1}^{\prime}\\ \bm{x}_{2}^{\prime}\\ \vdots\\ \bm{x}_{n}^{\prime}\end{pmatrix}$。その転置は $X^{\prime}=(\bm{x}_{1}\ \bm{x}_{2}\ \dots\ \bm{x}_{n})$ となる。したがって、$X^{\prime}X=\sum_{i=1}^{n}\bm{x}_{i}\bm{x}_{i}^{\prime}$。
+    \item $\sum_{i=1}^{n}\bm{x}_{i}\overline{\bm{x}}^{\prime}$: $\overline{\bm{x}}^{\prime}$ は和のインデックス $i$ に依存しないので、$\sum_{i=1}^{n}\bm{x}_{i}\overline{\bm{x}}^{\prime} = (\sum_{i=1}^{n}\bm{x}_{i})\overline{\bm{x}}^{\prime} = n\overline{\bm{x}}\overline{\bm{x}}^{\prime}$。
+    \item $\sum_{i=1}^{n}\overline{\bm{x}}\bm{x}_{i}^{\prime}$: $\overline{\bm{x}}$ も和のインデックス $i$ に依存しないので、$\sum_{i=1}^{n}\overline{\bm{x}}\bm{x}_{i}^{\prime} = \overline{\bm{x}}(\sum_{i=1}^{n}\bm{x}_{i}^{\prime}) = n\overline{\bm{x}}\overline{\bm{x}}^{\prime}$。
+    \item $\sum_{i=1}^{n}\overline{\bm{x}}\overline{\bm{x}}^{\prime}$: これは $n$ 回足し合わせるので、$n\overline{\bm{x}}\overline{\bm{x}}^{\prime}$。
+\end{itemize}
 \end{frame}
 
 \begin{frame}{7.2 $\bar{x}$ と $S$ の同時分布}
