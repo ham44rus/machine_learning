@@ -555,10 +555,42 @@ Lehmann-Schefféの定理は、「もし、ある統計量 $T$ が完全かつ�
 \frametitle{正規分布のMLE特性と場所族}
 \begin{block}{備考}
 Gaussに遡るよく知られた結果として、$\mathbb{R}$ 上の確率密度関数 $f(x-\theta)$ で、$x$ が $\theta$ の最尤推定量 (MLE) となる唯一の場所族は正規密度に由来します。\\
-この正規密度のMLE特性は $\mathbb{R}^p$ でも成り立ちます [Stadje (1993)]。\\
+この正規密度のMLE特性は $\mathbb{R}^p$ でも成り立ちます [Stadje (1993)]。
 すなわち、$f(x-\theta)$ という形の密度で、$x$ が常に $\theta$ のMLEとなるのは正規分布の場合のみです。
 \end{block}
 \end{frame}
+
+\begin{frame}
+\frametitle{$\overline{\bm{x}}\sim N_{p}(\bm{\mu},\frac{1}{n}\bm{\Sigma})$ が「明らか」な理由 (1)}
+\begin{itemize}
+    \item この記述が「明らか」とされるのは、多変量正規分布の線形変換と標本平均の性質に関する標準的な結果だからです。
+    \item \textbf{前提}: 各観測ベクトル $\bm{x}_i$ は独立同分布（i.i.d.）で $\bm{x}_i\sim N_{p}(\bm{\mu},\bm{\Sigma})$ に従います。
+    \item \textbf{標本平均の定義}: 標本平均 $\overline{\bm{x}}$ は、$\overline{\bm{x}}=\frac{1}{n}\sum_{i=1}^{n}\bm{x}_i$ です。
+    \item \textbf{正規分布の和の性質}:
+    \begin{itemize}
+        \item 独立な正規分布に従う確率変数の和も正規分布に従います。
+        \item $E[\sum\bm{x}_i]=\sum E[\bm{x}_i]=\sum\bm{\mu}=n\bm{\mu}$。
+        \item $\text{Cov}(\sum\bm{x}_i)=\sum\text{Cov}(\bm{x}_i)=\sum\bm{\Sigma}=n\bm{\Sigma}$ （独立性の仮定による）。
+        \item したがって、$\sum_{i=1}^{n}\bm{x}_i\sim N_{p}(n\bm{\mu},n\bm{\Sigma})$ です。
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{$\overline{\bm{x}}\sim N_{p}(\bm{\mu},\frac{1}{n}\bm{\Sigma})$ が「明らか」な理由 (2)}
+\begin{itemize}
+    \item \textbf{正規分布の定数倍の性質}: $c\cdot\bm{Y}\sim N_{p}(c\cdot E[\bm{Y}],c^2\cdot\text{Cov}(\bm{Y}))$ です。
+    \begin{itemize}
+        \item ここで、$\bm{Y}=\sum\bm{x}_i$、$c=\frac{1}{n}$ とすると、
+        \begin{align*}
+        \overline{\bm{x}}=\frac{1}{n}\sum\bm{x}_i&\sim N_{p}\left(\frac{1}{n}(n\bm{\mu}),\left(\frac{1}{n}\right)^2(n\bm{\Sigma})\right) \\
+        \overline{\bm{x}}&\sim N_{p}\left(\bm{\mu},\frac{1}{n^2}n\bm{\Sigma}\right) \\
+        \overline{\bm{x}}&\sim N_{p}\left(\bm{\mu},\frac{1}{n}\bm{\Sigma}\right)
+        \end{align*}
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
 
 \begin{frame}{7.3 Wishart分布の性質 - 命題}
 \begin{block}{命題 7.3}
