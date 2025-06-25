@@ -4,6 +4,9 @@
 \usepackage{graphicx}
 \usepackage{xcolor}
 
+% Define \tr as trace operator
+\newcommand{\tr}{\operatorname{tr}}
+
 % 日本語環境設定: CJKutf8とzxjafontを併用し、より多くの日本語文字をサポート
 \usepackage[ipaex]{zxjafont} % IPAexフォントを使用（IPAフォントの方が汎用的な場合もあります）
 \usepackage{CJKutf8} % \begin{CJK}...\end{CJK} 環境のために残します
@@ -374,30 +377,37 @@ Lehmann-Schefféの定理は、「もし、ある統計量 $T$ が完全かつ�
 \end{frame}
 
 \begin{frame}
-\frametitle{対数尤度関数の簡略化と最小化}
+\frametitle{対数尤度関数の簡略化と最小化 (1)}
 \begin{itemize}
     \item この対数尤度関数を $l(\bm{\Sigma},\bm{\mu})$ と表すとき、MLEを得るためには $l(\bm{\Sigma},\bm{\mu})$ を最大化する必要があります.
     \item ここで、定数項である $-\frac{np}{2}\text{ln}(2\pi)$ はパラメータ $\bm{\Sigma}$ や $\bm{\mu}$ に依存しないため、最大化には影響しません.
     \item したがって、最大化すべきは残りの項です:
     \[
-    l(\bm{\Sigma},\bm{\mu})\propto-\frac{n}{2}\text{ln}|\bm{\Sigma}|-\frac{1}{2}\text{tr}\left([V+n(\overline{\bm{x}}-\bm{\mu})(\overline{\bm{x}}-\bm{\mu})^{\prime}]\bm{\Sigma}^{-1}\right) \text{}
+    l(\bm{\Sigma},\bm{\mu})\propto-\frac{n}{2}\text{ln}|\bm{\Sigma}|-\frac{1}{2}\text{tr}\left([V+n(\overline{\bm{x}}-\bm{\mu})(\overline{\bm{x}}-\bm{\mu})^{\prime}]\bm{\Sigma}^{-1}\right)
     \]
     \item この式を最大化することは、符号を反転させて最小化することと同じです.
     \item そして、全体を $\frac{n}{2}$ で割っても最大化/最小化の結果は変わらないため、以下の式を最小化することになります:
-    \begin{align*}
-    &\frac{1}{n}\text{tr}\left([V+n(\overline{\bm{x}}-\bm{\mu})(\overline{\bm{x}}-\bm{\mu})^{\prime}]\bm{\Sigma}^{-1}\right)+\text{ln}|\bm{\Sigma}| \text{} \\
-    =&\frac{1}{n}\text{tr}(V\bm{\Sigma}^{-1})+\frac{1}{n}\text{tr}(n(\overline{\bm{x}}-\bm{\mu})(\overline{\bm{x}}-\bm{\mu})^{\prime}\bm{\Sigma}^{-1})+\text{ln}|\bm{\Sigma}| \text{} \\
-    =&\frac{1}{n}\text{tr}(V\bm{\Sigma}^{-1})+\text{tr}((\overline{\bm{x}}-\bm{\mu})(\overline{\bm{x}}-\bm{\mu})^{\prime}\bm{\Sigma}^{-1})+\text{ln}|\bm{\Sigma}| \text{} \\
-    =&\text{ln}|\bm{\Sigma}|+\text{tr}\frac{1}{n}V\bm{\Sigma}^{-1}+(\overline{\bm{x}}-\bm{\mu})^{\prime}\bm{\Sigma}^{-1}(\overline{\bm{x}}-\bm{\mu}) \quad \text{(7.2)} \text{}
-    \end{align*}
-    （最後の項はスカラーなので $\text{tr}$ を外すことができます 。）
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{対数尤度関数の簡略化と最小化 (2)}
+\begin{align*}
+&\frac{1}{n}\text{tr}\left([V+n(\overline{\bm{x}}-\bm{\mu})(\overline{\bm{x}}-\bm{\mu})^{\prime}]\bm{\Sigma}^{-1}\right)+\text{ln}|\bm{\Sigma}| \\
+=&\frac{1}{n}\text{tr}(V\bm{\Sigma}^{-1})+\frac{1}{n}\text{tr}(n(\overline{\bm{x}}-\bm{\mu})(\overline{\bm{x}}-\bm{\mu})^{\prime}\bm{\Sigma}^{-1})+\text{ln}|\bm{\Sigma}| \\
+=&\frac{1}{n}\text{tr}(V\bm{\Sigma}^{-1})+\text{tr}((\overline{\bm{x}}-\bm{\mu})(\overline{\bm{x}}-\bm{\mu})^{\prime}\bm{\Sigma}^{-1})+\text{ln}|\bm{\Sigma}| \\
+=&\text{ln}|\bm{\Sigma}|+\text{tr}\frac{1}{n}V\bm{\Sigma}^{-1}+(\overline{\bm{x}}-\bm{\mu})^{\prime}\bm{\Sigma}^{-1}(\overline{\bm{x}}-\bm{\mu}) \quad \text{(7.2)}
+\end{align*}
+\begin{itemize}
+    \item （最後の項はスカラーなので $\text{tr}$ を外すことができます。）
     \item この式は、テキストに示されている式 (7.2) と完全に一致します.
     \item したがって、この式を最小化する目的は、観測されたデータの下で、母集団パラメータである平均ベクトル $\bm{\mu}$ と共分散行列 $\bm{\Sigma}$ が最も「もっともらしい」値（すなわち最尤推定値）を見つけるためです.
 \end{itemize}
 \end{frame}
 
-\begin{frame}
-\frametitle{ステップ1: $\hat{\bm{\mu}}=\overline{\bm{x}}$ の特定と最後の項の除去}
+\begin{frame}[t]
+\frametitle{ステップ1: $\hat{\bm{\mu}}=\overline{\bm{x}}$ の特定と最後の項の除去（まとめて解説）}
+\small
 \begin{itemize}
     \item テキストにあるように、「（最後の項は $\ge0$ なので）$\hat{\bm{\mu}}=\overline{\bm{x}}$ であることは明らか」です。
     \item この「最後の項」とは、$+(\overline{\bm{x}}-\bm{\mu})^{\prime}\bm{\Sigma}^{-1}(\overline{\bm{x}}-\bm{\mu})$ のことです。
@@ -406,11 +416,13 @@ Lehmann-Schefféの定理は、「もし、ある統計量 $T$ が完全かつ�
     \item $(\overline{\bm{x}}-\bm{\mu})^{\prime}\bm{\Sigma}^{-1}(\overline{\bm{x}}-\bm{\mu})=0$ となるのは、$\overline{\bm{x}}-\bm{\mu}=0$ のとき、すなわち $\bm{\mu}=\overline{\bm{x}}$ のときです。
     \item したがって、$\bm{\mu}$ に関する最尤推定値 $\hat{\bm{\mu}}$ は $\overline{\bm{x}}$ であると直ちに分かります。
     \item $\hat{\bm{\mu}}=\overline{\bm{x}}$ を元の式に代入すると、最後の項は0になります。
-    \begin{align*}
-    &\text{ln}|\bm{\Sigma}|+\text{tr}\frac{1}{n}V\bm{\Sigma}^{-1}+(\overline{\bm{x}}-\overline{\bm{x}})^{\prime}\bm{\Sigma}^{-1}(\overline{\bm{x}}-\overline{\bm{x}}) \\
-    =&\text{ln}|\bm{\Sigma}|+\text{tr}\frac{1}{n}V\bm{\Sigma}^{-1}+0^{\prime}\bm{\Sigma}^{-1}0 \\
-    =&\text{ln}|\bm{\Sigma}|+\text{tr}\frac{1}{n}V\bm{\Sigma}^{-1}
-    \end{align*}
+\end{itemize}
+\begin{align*}
+&\text{ln}|\bm{\Sigma}|+\text{tr}\frac{1}{n}V\bm{\Sigma}^{-1}+(\overline{\bm{x}}-\overline{\bm{x}})^{\prime}\bm{\Sigma}^{-1}(\overline{\bm{x}}-\overline{\bm{x}}) \\
+=&\text{ln}|\bm{\Sigma}|+\text{tr}\frac{1}{n}V\bm{\Sigma}^{-1}+0^{\prime}\bm{\Sigma}^{-1}0 \\
+=&\text{ln}|\bm{\Sigma}|+\text{tr}\frac{1}{n}V\bm{\Sigma}^{-1}
+\end{align*}
+\begin{itemize}
     \item これにより、$\bm{\Sigma}$ の最尤推定値 $\hat{\bm{\Sigma}}$ を得るためには、この簡略化された式を最小化すればよいことになります。
 \end{itemize}
 \end{frame}
@@ -432,10 +444,10 @@ Lehmann-Schefféの定理は、「もし、ある統計量 $T$ が完全かつ�
     &=\text{ln}|V^{-1}(V\bm{\Sigma})| \\
     &=\text{ln}|nV^{-1}|+\text{ln}|\frac{1}{n}V\bm{\Sigma}|
     \end{align*}
-    \item しかし、テキストの変形は異なるアプローチを取っています。テキストの変形は、以下のように示されています:
 \end{itemize}
 \end{frame}
 \begin{frame}
+    \frametitle{式変形のまとめ (1)}
     \begin{itemize}
         \item 
         \[
@@ -443,10 +455,15 @@ Lehmann-Schefféの定理は、「もし、ある統計量 $T$ が完全かつ�
         \]
         \item これは、以下の恒等式（定数を追加・削除しても最小化の問題は変わらない）に基づいています。
         \[
-        \text{ln}|\bm{\Sigma}|=\text{ln}|nV^{-1}\bm{\Sigma}|-\text{ln}|nV^{-1}|
+        \text{ln}|\bm{\Sigma}| = \text{ln}|nV^{-1}\bm{\Sigma}| - \text{ln}|nV^{-1}|
         \]
         \item ここで、$\text{ln}|nV^{-1}|$ は $\bm{\Sigma}$ に依存しない定数です。
         \item したがって、最小化すべき式 $\text{ln}|\bm{\Sigma}|+\text{tr}\frac{1}{n}V\bm{\Sigma}^{-1}$ は、定数項 $\text{ln}|nV^{-1}|$ を追加（または削除）しても、$\bm{\Sigma}$ の最適値は変わりません。
+    \end{itemize}
+\end{frame}
+\begin{frame}
+    \frametitle{式変形のまとめ (2)}
+    \begin{itemize}
         \item
         \begin{align*}
         &\text{ln}|\bm{\Sigma}|+\text{tr}\frac{1}{n}V\bm{\Sigma}^{-1} \\
@@ -459,6 +476,19 @@ Lehmann-Schefféの定理は、「もし、ある統計量 $T$ が完全かつ�
         \]
     \end{itemize}
 \end{frame}
+
+\begin{frame}
+\frametitle{ステップ3: $\bm{\Sigma}$ の MLE の最終導出}
+定数 $\ln|nV^{-1}|$ は $\bm{\Sigma}$ の最適化には影響しません。条件 $n-1 \ge p$ は $V$ が確率1で非特異（正則）であることを保証します（これは後の系7.2で証明されます）。
+
+変数変換 $T = nV^{-1}\bm{\Sigma}$ を導入すると、最小化すべき式は
+\[
+\ln|T| + \mathrm{tr}(T^{-1})
+\]
+となります。この式は $T$ のすべての固有値が1のとき最小値をとります。したがって、$\hat{\bm{\Sigma}} = \frac{1}{n}V$ が最尤推定値となります。
+\end{frame}
+
+
 \begin{frame}{7.3 Wishart分布の性質 - 命題}
 \begin{block}{命題 7.3}
 $W \sim W_p(m)$ かつ $m \ge p$ ならば、$W$ は確率1で非特異である。
