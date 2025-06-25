@@ -506,6 +506,60 @@ Lehmann-Schefféの定理は、「もし、ある統計量 $T$ が完全かつ�
 \end{itemize}
 \end{frame}
 
+\begin{frame}
+\frametitle{各固有値ごとの最小化 (1)}
+\begin{itemize}
+    \item この関数は、各固有値 $\lambda_j$ について独立に最小化できます。
+    \[ g(\lambda)=\text{ln}(\lambda)+\frac{1}{\lambda} \]
+    \item この関数 $g(\lambda)$ を最小化するために、$\lambda$ について微分し、導関数を0と置きます。
+    \begin{align*}
+        g^{\prime}(\lambda)&=\frac{d}{d\lambda}(\text{ln}(\lambda)+\lambda^{-1}) \\
+        g^{\prime}(\lambda)&=\frac{1}{\lambda}-\frac{1}{\lambda^2}
+    \end{align*}
+    \item $g^{\prime}(\lambda)=0$ とすると、
+    \begin{align*}
+        \frac{1}{\lambda}-\frac{1}{\lambda^2}&=0 \\
+        \frac{1}{\lambda}&=\frac{1}{\lambda^2} \\
+        \lambda^2&=\lambda \\
+        \lambda(\lambda-1)&=0
+    \end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{各固有値ごとの最小化 (2)}
+\begin{itemize}
+    \item $\lambda=0$ または $\lambda=1$。
+    \item しかし、行列式 $|T|$ は非ゼロでなければならない（ウィシャート分布の文脈で $V$ は非特異なので）ため、固有値 $\lambda$ は0ではありえません。
+    \item したがって、唯一の極値点は $\lambda=1$ です。
+    \item 二階微分を調べて、これが最小値であることを確認します。
+    \begin{align*}
+        g^{\prime\prime}(\lambda)&=\frac{d}{d\lambda}(\lambda^{-1}-\lambda^{-2}) \\
+        g^{\prime\prime}(\lambda)&=-\lambda^{-2}+2\lambda^{-3}=-\frac{1}{\lambda^2}+\frac{2}{\lambda^3}
+    \end{align*}
+    \item $\lambda=1$ のとき、$g^{\prime\prime}(1)=-1+2=1>0$ なので、これは極小値であり、唯一の最小値です。
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{各固有値ごとの最小化 (3) および結論}
+\begin{itemize}
+    \item 関数 $f(\lambda_1,\dots,\lambda_p)$ は、すべての固有値 $\lambda_j$ が 1 のときに最小値を取ります。
+    \item すべての固有値が1である対称行列は、単位行列 $I$ だけです。
+    \item よって、$T = I$ のとき最小値となり、$nV^{-1}\hat{\bm{\Sigma}} = I$、すなわち $\hat{\bm{\Sigma}} = \frac{1}{n}V$ となります。
+    \item これが多変量正規分布における共分散行列の最尤推定値です。
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{正規分布のMLE特性と場所族}
+\begin{itemize}
+    \item 備考: Gaussに遡るよく知られた結果として、$\mathbb{R}$ 上の確率密度関数 $f(x-\theta)$ で、$x$ が $\theta$ の最尤推定量 (MLE) となる唯一の場所族は正規密度に由来します。
+    \item この正規密度のMLE特性は $\mathbb{R}^p$ でも成り立ちます [Stadje (1993)]。
+    \item すなわち、$f(x-\theta)$ という形の密度で、$x$ が常に $\theta$ のMLEとなるのは正規分布の場合のみです。
+\end{itemize}
+\end{frame}
+
 \begin{frame}{7.3 Wishart分布の性質 - 命題}
 \begin{block}{命題 7.3}
 $W \sim W_p(m)$ かつ $m \ge p$ ならば、$W$ は確率1で非特異である。
