@@ -1,11 +1,11 @@
 # Fdb version 4
-["xdvipdfmx"] 1750839211 "applied-mathematics-research-resume1.xdv" "applied-mathematics-research-resume1.pdf" "applied-mathematics-research-resume1" 1750839211 0
-  "applied-mathematics-research-resume1.xdv" 1750839211 418536 fcb3ade30ceeae4501f1763272f20773 "xelatex"
+["xdvipdfmx"] 1750839735 "applied-mathematics-research-resume1.xdv" "applied-mathematics-research-resume1.pdf" "applied-mathematics-research-resume1" 1750839736 0
+  "applied-mathematics-research-resume1.xdv" 1750839735 442800 f544404cb995779f9e921161769c007d "xelatex"
   (generated)
   "applied-mathematics-research-resume1.pdf"
   (rewritten before read)
-["xelatex"] 1750839209 "/Users/rintaro/Downloads/Github_private/machine_learning/appliedmathematicsresearch/applied-mathematics-research-resume1.tex" "applied-mathematics-research-resume1.xdv" "applied-mathematics-research-resume1" 1750839211 0
-  "/Users/rintaro/Downloads/Github_private/machine_learning/appliedmathematicsresearch/applied-mathematics-research-resume1.tex" 1750838862 43647 f5fa98538c6a564160d5a92e98704260 ""
+["xelatex"] 1750839733 "/Users/rintaro/Downloads/Github_private/machine_learning/appliedmathematicsresearch/applied-mathematics-research-resume1.tex" "applied-mathematics-research-resume1.xdv" "applied-mathematics-research-resume1" 1750839736 0
+  "/Users/rintaro/Downloads/Github_private/machine_learning/appliedmathematicsresearch/applied-mathematics-research-resume1.tex" 1750839691 47106 e23ff5f436dfbcfacdf20bde1118b3b4 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1246382020 1120 1e8878807317373affa7f7bba4cf2f6a ""
@@ -229,11 +229,11 @@
   "/usr/local/texlive/2023/texmf-dist/web2c/texmf.cnf" 1677365944 40745 87bb86a62d462f93a1efc6b0c65c872e ""
   "/usr/local/texlive/2023/texmf-var/web2c/xetex/xelatex.fmt" 1692411247 10502845 0d419cd5583155793ebfca6e42183d84 ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
-  "applied-mathematics-research-resume1.aux" 1750839211 10565 55ba71b5b44c26ad80653b989c9c9ed3 "xelatex"
-  "applied-mathematics-research-resume1.nav" 1750839211 5543 60c8c21cc6f7838400a2cdd0150df5e2 "xelatex"
-  "applied-mathematics-research-resume1.out" 1750839211 94 17877ad0a14a592220c0cc8234b36dcb "xelatex"
-  "applied-mathematics-research-resume1.tex" 1750838862 43647 f5fa98538c6a564160d5a92e98704260 ""
-  "applied-mathematics-research-resume1.toc" 1750839211 49 9a0650156a2c5022dd7ff1ec7d2dd912 "xelatex"
+  "applied-mathematics-research-resume1.aux" 1750839735 11249 80a68ca78a0d6906d6ceeb451248a288 "xelatex"
+  "applied-mathematics-research-resume1.nav" 1750839735 5915 081b7a571e4a41753acc6b86ec4767ed "xelatex"
+  "applied-mathematics-research-resume1.out" 1750839735 94 17877ad0a14a592220c0cc8234b36dcb "xelatex"
+  "applied-mathematics-research-resume1.tex" 1750839691 47106 e23ff5f436dfbcfacdf20bde1118b3b4 ""
+  "applied-mathematics-research-resume1.toc" 1750839735 49 9a0650156a2c5022dd7ff1ec7d2dd912 "xelatex"
   (generated)
   "applied-mathematics-research-resume1.aux"
   "applied-mathematics-research-resume1.log"

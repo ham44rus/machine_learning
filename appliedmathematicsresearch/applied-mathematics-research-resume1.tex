@@ -692,6 +692,66 @@ Gaussに遡るよく知られた結果として、$\mathbb{R}$ 上の確率密�
 \end{itemize}
 \end{frame}
 
+\begin{frame}
+\frametitle{したがって $\overline{\bm{x}}\perp\!\!\!\perp S_x$ の理由}
+\begin{itemize}
+    \item これは、独立性が線形変換によって保たれるという性質に基づきます。
+    \item 先に示したように、$\bm{x}_i = A\bm{z}_i + \bm{\mu}$ から $(\overline{\bm{x}}, S_x) = (A\overline{\bm{z}} + \bm{\mu}, A S_z A')$ となります。
+    \item $\overline{\bm{x}}$ は $\overline{\bm{z}}$ の線形変換、$S_x$ は $S_z$ の線形変換です。
+    \item $\overline{\bm{z}} \perp\!\!\!\perp S_z$ であるため、$\overline{\bm{x}}$ と $S_x$ も独立です。
+    \item よって、$\overline{\bm{x}} \perp\!\!\!\perp S_x$ が成り立ちます。
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{$\overline{\bm{z}}\perp\!\!\!\perp S_z$ の理由}
+\begin{itemize}
+    \item 多変量標準正規分布において、標本平均 $\overline{\bm{z}}$ と標本分散共分散行列 $S_z$ は独立です。
+    \item これは、$PZ$（平均成分）と $QZ$（偏差成分）が直交射影行列 $P$ と $Q$ による射影であり、$PZ \perp\!\!\!\perp QZ$ が成り立つためです。
+    \item $\overline{\bm{z}}$ は $PZ$ の線形変換、$S_z$ は $QZ$ のみから構成されるため、$PZ$ と $QZ$ の独立性から $\overline{\bm{z}}$ と $S_z$ も独立となります。
+    \item この性質は、正規分布の直交射影による分割が独立性をもたらすことに由来します。
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{$n\overline{\bm{z}}=Z^{\prime}P\bm{1}$ の導出}
+\begin{itemize}
+    \item \textbf{$n\overline{\bm{z}}=Z^{\prime}P\bm{1}$ の理由:}
+    \begin{itemize}
+        \item 標本平均ベクトル $\overline{\bm{z}}$ の定義は $\overline{\bm{z}} = n^{-1}Z^{\prime}\bm{1}$ です。
+        \item ここで、$P = n^{-1}\bm{1}\bm{1}^{\prime}$ は平均への射影行列です。
+        \item $Z^{\prime}P\bm{1} = Z^{\prime}(n^{-1}\bm{1}\bm{1}^{\prime})\bm{1} = n^{-1}Z^{\prime}\bm{1}(\bm{1}^{\prime}\bm{1})$ となります。
+        \item $\bm{1}^{\prime}\bm{1} = n$ なので、$Z^{\prime}P\bm{1} = n^{-1}Z^{\prime}\bm{1} \cdot n = Z^{\prime}\bm{1}$ です。
+        \item よって、$n\overline{\bm{z}} = Z^{\prime}\bm{1} = Z^{\prime}P\bm{1}$ となります。
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{$n\overline{\bm{z}}=Z^{\prime}P\bm{1}$ と $(n-1)S_z=Z^{\prime}QQZ$ の導出（続き）}
+\begin{itemize}
+    \item \textbf{$(n-1)S_z=Z^{\prime}QQZ$ の理由:}
+    \begin{itemize}
+        \item 標本分散共分散行列 $S_z$ の定義は
+        \[
+        (n-1)S_z = \sum_{i=1}^{n} (\bm{z}_i - \overline{\bm{z}})(\bm{z}_i - \overline{\bm{z}})'
+        \]
+        \item $Q = I - n^{-1}\bm{1}\bm{1}'$ は、平均ベクトルへの射影を除去する直交射影行列です。
+        \item $Q\bm{z}_i = \bm{z}_i - \overline{\bm{z}}$ となるので、$QZ$ は各行から平均を引いた行列になります。
+        \item よって、$QZ$ の $i$ 行目は $(\bm{z}_i - \overline{\bm{z}})'$ です。
+        \item $QZ$ の各行を縦に並べたものが $QZ$、その転置が $(QZ)' = Z'Q$ です。
+        \item したがって、
+        \[
+        (n-1)S_z = (QZ)'(QZ) = Z'Q'QZ
+        \]
+        \item $Q$ は射影行列なので $Q' = Q$ かつ $Q^2 = Q$ です。よって
+        \[
+        (n-1)S_z = Z'QQZ
+        \]
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
 \begin{frame}{7.3 Wishart分布の性質 - 命題}
 \begin{block}{命題 7.3}
 $W \sim W_p(m)$ かつ $m \ge p$ ならば、$W$ は確率1で非特異である。
