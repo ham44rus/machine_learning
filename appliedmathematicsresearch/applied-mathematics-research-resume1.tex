@@ -660,6 +660,38 @@ Gaussに遡るよく知られた結果として、$\mathbb{R}$ 上の確率密�
 \end{itemize}
 \end{frame}
 
+\begin{frame}
+\frametitle{「$\perp\perp$」の意味}
+\begin{itemize}
+    \item 数学や統計学において、「$\perp\perp$」という記号は、通常\textbf{統計的独立性 (statistical independence)} を意味します.
+    \item $A\perp\perp B$ と書かれた場合、それは確率変数（またはベクトル、行列）$A$ と $B$ が互いに統計的に独立であることを意味します.
+    \item 統計的独立性とは、一方の変数の値が分かっても、もう一方の変数の値に関する情報が何も得られない、という関係です.
+    \item つまり、2つの事象や変数が互いに影響し合わない状態を指します.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{$PZ\perp\perp QZ$ であることが明らかである理由}
+\begin{itemize}
+    \item $PZ$ と $QZ$ が独立（$\perp\perp$）である理由は、$P$ と $Q$ が直交射影行列であり、$P+Q=I$ かつ $PQ=QP=0$ という性質に基づきます。
+    \item $Z$ の各列は独立な標準正規ベクトルなので、$PZ$（平均成分）と $QZ$（偏差成分）はともに正規分布に従います。
+    \item $PZ$ と $QZ$ の和は $Z$ そのものであり、$PZ$ と $QZ$ は直交する部分空間への射影なので、$\mathrm{Cov}(PZ, QZ) = 0$ が成り立ちます。
+    \item 多変量正規分布では、無相関（共分散ゼロ）は独立と同値なので、$PZ$ と $QZ$ は独立です。
+    \item したがって、$PZ \perp\perp QZ$ となることは「明らか」です。
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{$PZ\perp\perp QZ$ であることが明らかである理由 (続き)}
+\begin{itemize}
+    \item \textbf{直交射影}: $P$ と $Q$ は、互いに直交する射影行列です.
+    \begin{itemize}
+        \item $P^2=P$ かつ $Q^2=Q$ （射影性）
+        \item $PQ=QP=0$ （直交性）. これは、平均への射影と平均からの偏差への射影が互いに直交していることを意味します.
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
 \begin{frame}{7.3 Wishart分布の性質 - 命題}
 \begin{block}{命題 7.3}
 $W \sim W_p(m)$ かつ $m \ge p$ ならば、$W$ は確率1で非特異である。
