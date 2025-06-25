@@ -488,6 +488,23 @@ Lehmann-Schefféの定理は、「もし、ある統計量 $T$ が完全かつ�
 となります。この式は $T$ のすべての固有値が1のとき最小値をとります。したがって、$\hat{\bm{\Sigma}} = \frac{1}{n}V$ が最尤推定値となります。
 \end{frame}
 
+\begin{frame}
+\frametitle{固有値による表現}
+\begin{itemize}
+    \item 対称行列 $T$ の場合、そのトレースと行列式は固有値 $\lambda_1,\lambda_2,\dots,\lambda_p$ を用いて次のように表現できます。
+    \begin{itemize}
+        \item $\tr(T)=\sum_{j=1}^{p}\lambda_j$
+        \item $|T|=\prod_{j=1}^{p}\lambda_j$
+    \end{itemize}
+    \item したがって、$\text{ln}|T|+\tr~T^{-1}$ は、固有値の関数として次のように書くことができます。
+    \begin{itemize}
+        \item $\text{ln}|T|=\text{ln}(\prod_{j=1}^{p}\lambda_j)=\sum_{j=1}^{p}\text{ln}(\lambda_j)$
+        \item $\tr(T^{-1})=\sum_{j=1}^{p}\frac{1}{\lambda_j}$ （$T$ の固有値が $\lambda_j$ なら、$T^{-1}$ の固有値は $1/\lambda_j$）
+    \end{itemize}
+    \item これにより、最小化すべき関数は、各固有値 $\lambda_j$ の関数として次のように分解できます。
+    \[ f(\lambda_1,\dots,\lambda_p)=\sum_{j=1}^{p}\left(\text{ln}(\lambda_j)+\frac{1}{\lambda_j}\right) \]
+\end{itemize}
+\end{frame}
 
 \begin{frame}{7.3 Wishart分布の性質 - 命題}
 \begin{block}{命題 7.3}

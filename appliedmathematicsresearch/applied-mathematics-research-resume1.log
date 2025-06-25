@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.8.19)  25 JUN 2025 15:08
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.8.19)  25 JUN 2025 15:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1289,6 +1289,8 @@ Overfull \hbox (6.34pt too wide) in paragraph at lines 489--489
 
 ] [42
 
+] [43
+
 ]
 \tf@nav=\write6
 \openout6 = `applied-mathematics-research-resume1.nav'.
@@ -1307,12 +1309,12 @@ Package rerunfilecheck Info: File `applied-mathematics-research-resume1.out' has
 (rerunfilecheck)             Checksum: 17877AD0A14A592220C0CC8234B36DCB;94.
  ) 
 Here is how much of TeX's memory you used:
- 26445 strings out of 476683
- 559545 string characters out of 5804047
+ 26447 strings out of 476683
+ 559561 string characters out of 5804047
  1865018 words of memory out of 5000000
- 46127 multiletter control sequences out of 15000+600000
+ 46129 multiletter control sequences out of 15000+600000
  529667 words of font info for 122 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  128i,18n,122p,566b,845s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on applied-mathematics-research-resume1.xdv (42 pages, 336624 bytes).
+Output written on applied-mathematics-research-resume1.xdv (43 pages, 343908 bytes).
