@@ -591,6 +591,74 @@ Gaussに遡るよく知られた結果として、$\mathbb{R}$ 上の確率密�
 \end{itemize}
 \end{frame}
 
+\begin{frame}
+\frametitle{標本平均の変換}
+\begin{itemize}
+    \item $\overline{\bm{x}}$ は $\bm{x}_i$ の標本平均です。
+    \[
+    \overline{\bm{x}} = \frac{1}{n}\sum_{i=1}^{n}\bm{x}_i
+    \]
+    \item $\bm{x}_i = A\bm{z}_i + \bm{\mu}$ を代入すると、
+    \begin{align*}
+        \overline{\bm{x}} &= \frac{1}{n}\sum_{i=1}^{n}(A\bm{z}_i + \bm{\mu}) \\
+        &= \frac{1}{n}\left(A\sum_{i=1}^{n}\bm{z}_i + \sum_{i=1}^{n}\bm{\mu}\right) \\
+        &= \frac{1}{n}\left(A(n\overline{\bm{z}}) + n\bm{\mu}\right) \\
+        &= A\overline{\bm{z}} + \bm{\mu}
+    \end{align*}
+    \item したがって、$\overline{\bm{x}}$ の分布は $A\overline{\bm{z}} + \bm{\mu}$ の分布と一致します。
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{標本分散共分散行列の変換 (1/2)}
+\begin{itemize}
+    \item $S_x$ は $\bm{x}_i$ の標本分散共分散行列です。
+    \[
+    (n-1)S_x = \sum_{i=1}^{n} (\bm{x}_i - \overline{\bm{x}})(\bm{x}_i - \overline{\bm{x}})'
+    \]
+    \item $\bm{x}_i - \overline{\bm{x}}$ の部分を変換します。
+    \begin{align*}
+        \bm{x}_i - \overline{\bm{x}} &= (A\bm{z}_i + \bm{\mu}) - (A\overline{\bm{z}} + \bm{\mu}) \\
+        &= A\bm{z}_i - A\overline{\bm{z}} \\
+        &= A(\bm{z}_i - \overline{\bm{z}})
+    \end{align*}
+    \item これを標本分散共分散行列の定義に代入します。
+    \[
+    (n-1)S_x = \sum_{i=1}^{n} (A(\bm{z}_i - \overline{\bm{z}}))(A(\bm{z}_i - \overline{\bm{z}}))'
+    \]
+    \[
+    = \sum_{i=1}^{n} A(\bm{z}_i - \overline{\bm{z}})(\bm{z}_i - \overline{\bm{z}})'A'
+    \]
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{標本共分散行列の変換 (1)}
+\begin{itemize}
+    \item 標本共分散行列 $\bm{S}$ は
+    \[
+    (n-1)\bm{S_z} = \sum_{i=1}^{n} (\bm{x}_i - \overline{\bm{x}})(\bm{x}_i - \overline{\bm{x}})'
+    \]
+    で定義されます。
+    \item $\bm{x}_i = A\bm{z}_i + \bm{\mu}$ および $\overline{\bm{x}} = A\overline{\bm{z}} + \bm{\mu}$ を代入すると、
+    \begin{align*}
+    \bm{x}_i - \overline{\bm{x}} &= A(\bm{z}_i - \overline{\bm{z}})
+    \end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{標本共分散行列の変換 (2)}
+\begin{itemize}
+    \item よって、
+    \begin{align*}
+    (n-1)\bm{S} &= \sum_{i=1}^{n} A(\bm{z}_i - \overline{\bm{z}})(\bm{z}_i - \overline{\bm{z}})'A' \\
+    &= A \left( \sum_{i=1}^{n} (\bm{z}_i - \overline{\bm{z}})(\bm{z}_i - \overline{\bm{z}})' \right) A' \\
+    &= A (n-1)\bm{S}_z A'
+    \end{align*}
+    \item したがって、$\bm{S}$ の分布は $A\bm{S}_zA'$ の分布と一致します。
+\end{itemize}
+\end{frame}
 
 \begin{frame}{7.3 Wishart分布の性質 - 命題}
 \begin{block}{命題 7.3}
