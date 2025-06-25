@@ -4,21 +4,25 @@
 \usepackage{graphicx}
 \usepackage{xcolor}
 
-% 日本語環境設定
-\usepackage{CJKutf8}
+% 日本語環境設定: CJKutf8とzxjafontを併用し、より多くの日本語文字をサポート
+\usepackage[ipaex]{zxjafont} % IPAexフォントを使用（IPAフォントの方が汎用的な場合もあります）
+\usepackage{CJKutf8} % \begin{CJK}...\end{CJK} 環境のために残します
 
 \usetheme{Madrid}
 \usecolortheme{default}
 \setbeamertemplate{navigation symbols}{}
 
-\begin{document}
-
-\begin{CJK}{UTF8}{min}
-
 \title{Wishart分布とその性質}
 \subtitle{多変量正規分布の推定とBox-Cox変換}
 \author{山北倫太郎}
 \date{\today}
+
+\begin{document}
+
+% zxjafont を使用する場合、通常は\begin{CJK}...\end{CJK}環境は不要ですが、
+% 互換性のために残す場合はコメントアウトを外してください。
+% 今回は文字化けリスクを減らすため、コメントアウトしています。
+% \begin{CJK}{UTF8}{min} 
 
 \begin{frame}
 \titlepage
@@ -95,7 +99,8 @@ exp[tr(⋅)]=etr(⋅)の記法を用いると、確率密度関数は次のよ�
 \item \text{ここで、}\(\mu'\Sigma^{-1}x_i\) はスカラー値であり、スカラーの転置は自分自身なので、\(\mu'\Sigma^{-1}x_i = (x_i'\Sigma^{-1}\mu)'\) です。\\
 したがって、\(x_i'\Sigma^{-1}\mu\) と \(\mu'\Sigma^{-1}x_i\) は同じスカラー値を表します。
 \end{itemize}
-\end{frame}\begin{frame}{2行目}
+\end{frame}
+\begin{frame}{2行目 (続き)} % フレームタイトルを修正して区別
 exp[tr(⋅)]=etr(⋅)の記法を用いると、確率密度関数は次のように表される 。
 
 \begin{align*}
@@ -110,7 +115,7 @@ exp[tr(⋅)]=etr(⋅)の記法を用いると、確率密度関数は次のよ�
 
 \end{frame}
 
-\begin{frame}{2行目}
+\begin{frame}{2行目 (さらに続き)} % フレームタイトルを修正して区別
 \begin{itemize}
     \item $\mu'$は平均ベクトル$\mu$の転置を表し、$\mu$はp次元の列ベクトルなので、$\mu'$は1行p列の行ベクトルになります。
     \item $\Sigma^{-1}$は共分散行列$\Sigma$の逆行列を表し、$\Sigma$はp*pの正方行列なので、$\Sigma^{-1}$もp*pの正方行列になります。
@@ -135,7 +140,7 @@ exp[tr(⋅)]=etr(⋅)の記法を用いると、確率密度関数は次のよ�
     &= \text{tr}(\Sigma^{-1} X'X)
     \end{align*}
 \end{frame}
-\begin{frame}{1項目}
+\begin{frame}{1項目 (続き)} % フレームタイトルを修正して区別
     \begin{itemize}
         \item $X=\begin{pmatrix}x_1' \\ \vdots \\ x_n'\end{pmatrix}$ であるから、$X'X = \sum_{i=1}^n x_ix_i'$ となる。
         \item ここで、$x_i'$ は $x_i$ の転置を表し、$x_ix_i'$ は $x_i$ の外積を表す。
@@ -241,6 +246,230 @@ V = (n-1)S = \sum_{i=1}^n (x_i - \bar{x})(x_i - \bar{x})'
 \end{itemize}
 \end{frame}
 
+\begin{frame}{Rao-Blackwellの定理とLehmann-Schefféの定理}
+\begin{block}{定理 (Rao-Blackwell)}
+$\hat{\theta}$ がパラメータ $\theta$ の不偏推定量であり、$T$ が十分統計量であるとする。このとき、$\hat{\theta}^* = E[\hat{\theta} \mid T]$ と定義すると、
+\begin{itemize}
+    \item $\hat{\theta}^*$ は $\theta$ の不偏推定量である。
+    \item $\mathrm{Var}(\hat{\theta}^*) \leq \mathrm{Var}(\hat{\theta})$ が成り立つ。
+\end{itemize}
+\end{block}
+\begin{block}{定理 (Lehmann-Scheffé)}
+$T$ がパラメータ $\theta$ の完全かつ十分な統計量であるとする。もし $\hat{\theta}^* = g(T)$ が $T$ の関数であり、かつ $\theta$ の不偏推定量であるならば、$\hat{\theta}^*$ は $\theta$ の最小分散不偏推定量 (MVUE) である。
+\end{block}
+\end{frame}
+
+\begin{frame}{なぜ $(X'X, \bar{x})$ または $(S, \bar{x})$ なのか？}
+多変量正規分布の確率密度関数（尤度関数）の指数部分を見返すと、$\mu$ と $\Sigma$ を含む項が、$X'X$ と $\bar{x}$ の形で表現されていることがわかります。特に、
+\[
+\mathrm{etr}\left\{-\frac{1}{2}\left[V + n(\bar{x} - \mu)(\bar{x} - \mu)'\right]\Sigma^{-1}\right\}
+\]
+という形で書けることから、観測されたデータ $X$ の情報のうち、パラメータ $\mu$ と $\Sigma$ に影響を与える部分は、本質的に $V$（または $S$）と $\bar{x}$ に集約されていることが読み取れます。これにより、これらが十分統計量であることが示唆されます。
+\end{frame}
+
+\begin{frame}
+\frametitle{前提となる事実}
+\begin{itemize}
+    \item $\bm{x}_i \sim N_p(\bm{\mu},\bm{\Sigma})$ (i.i.d.) 
+    \item $\overline{\bm{x}} = \frac{1}{n}\sum_{i=1}^{n}\bm{x}_i$ 
+    \item $(n-1)\bm{S}=\sum_{i=1}^{n}(\bm{x}_i-\overline{\bm{x}})(\bm{x}_i-\overline{\bm{x}})^{\prime}$ [これは $(n-1)\bm{S}=\bm{X}^{\prime}\bm{X}-n\overline{\bm{x}}\overline{\bm{x}}^{\prime}$ に等しい]
+    \item $(\overline{\bm{x}},\bm{S})$ が $(\bm{\Sigma},\bm{\mu})$ に対して最小十分かつ完全な統計量である  。
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{ステップ1: 不偏性 (Unbiasedness) の確認}
+\begin{block}{a. $\overline{\bm{x}}$ が $\bm{\mu}$ の不偏推定値であること}
+\begin{align*}
+E[\overline{\bm{x}}] &= E\left[\frac{1}{n}\sum_{i=1}^{n}\bm{x}_i\right] \\
+&= \frac{1}{n}\sum_{i=1}^{n}E[\bm{x}_i]
+\end{align*}
+各 $\bm{x}_i$ は $N_p(\bm{\mu},\bm{\Sigma})$ に従うため、$E[\bm{x}_i]=\bm{\mu}$ です。
+\begin{align*}
+&= \frac{1}{n}\sum_{i=1}^{n}\bm{\mu} \\
+&= \frac{1}{n}(n\bm{\mu}) \\
+&= \bm{\mu}
+\end{align*}
+したがって、$E[\overline{\bm{x}}]=\bm{\mu}$ であり、$\overline{\bm{x}}$ は $\bm{\mu}$ の不偏推定値です。
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{ステップ1: 不偏性 (Unbiasedness) の確認}
+\begin{block}{b. $\bm{S}$ が $\bm{\Sigma}$ の不偏推定値であること}
+\begin{align*}
+E[\bm{S}] &= E\left[\frac{1}{n-1}\sum_{i=1}^{n}(\bm{x}_i-\overline{\bm{x}})(\bm{x}_i-\overline{\bm{x}})^{\prime}\right] \\
+&= \frac{1}{n-1}E\left[\sum_{i=1}^{n}(\bm{x}_i\bm{x}_i^{\prime}-\bm{x}_i\overline{\bm{x}}^{\prime}-\overline{\bm{x}}\bm{x}_i^{\prime}+\overline{\bm{x}}\overline{\bm{x}}^{\prime})\right] \\
+&= \frac{1}{n-1}\left(\sum_{i=1}^{n}E[\bm{x}_i\bm{x}_i^{\prime}]-\sum_{i=1}^{n}E[\bm{x}_i\overline{\bm{x}}^{\prime}]-\sum_{i=1}^{n}E[\overline{\bm{x}}\bm{x}_i^{\prime}]+\sum_{i=1}^{n}E[\overline{\bm{x}}\overline{\bm{x}}^{\prime}]\right)
+\end{align*}
+ここで、各項を評価します。
+\begin{itemize}
+    \item $E[\bm{x}_i\bm{x}_i^{\prime}]=\text{Cov}(\bm{x}_i)+E[\bm{x}_i]E[\bm{x}_i^{\prime}]=\bm{\Sigma}+\bm{\mu}\bm{\mu}^{\prime}$。
+    \item $E[\overline{\bm{x}}\overline{\bm{x}}^{\prime}]=\text{Cov}(\overline{\bm{x}})+E[\overline{\bm{x}}]E[\overline{\bm{x}}^{\prime}]=\frac{1}{n}\bm{\Sigma}+\bm{\mu}\bm{\mu}^{\prime}$ (∵ $\overline{\bm{x}}\sim N_p(\bm{\mu},\frac{1}{n}\bm{\Sigma})$)。
+    \item $\sum_{i=1}^{n}E[\bm{x}_i\overline{\bm{x}}^{\prime}]=E[(\sum_{i=1}^{n}\bm{x}_i)\overline{\bm{x}}^{\prime}]=E[n\overline{\bm{x}}\overline{\bm{x}}^{\prime}]=nE[\overline{\bm{x}}\overline{\bm{x}}^{\prime}]=n(\frac{1}{n}\bm{\Sigma}+\bm{\mu}\bm{\mu}^{\prime})=\bm{\Sigma}+n\bm{\mu}\bm{\mu}^{\prime}$。
+    \item $\sum_{i=1}^{n}E[\overline{\bm{x}}\bm{x}_i^{\prime}]=E[\overline{\bm{x}}(\sum_{i=1}^{n}\bm{x}_i)^{\prime}]=E[\overline{\bm{x}}(n\overline{\bm{x}})^{\prime}]=nE[\overline{\bm{x}}\overline{\bm{x}}^{\prime}]=n(\frac{1}{n}\bm{\Sigma}+\bm{\mu}\bm{\mu}^{\prime})=\bm{\Sigma}+n\bm{\mu}\bm{\mu}^{\prime}$。
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{ステップ1: 不偏性 (Unbiasedness) の確認 (続き)}
+\begin{block}{b. $\bm{S}$ が $\bm{\Sigma}$ の不偏推定値であること (続き)}
+これらを $E[\bm{S}]$ の式に代入します。
+\begin{align*}
+E[\bm{S}] &= \frac{1}{n-1}\left(\sum_{i=1}^{n}(\bm{\Sigma}+\bm{\mu}\bm{\mu}^{\prime})-(\bm{\Sigma}+n\bm{\mu}\bm{\mu}^{\prime})-(\bm{\Sigma}+n\bm{\mu}\bm{\mu}^{\prime})+n(\frac{1}{n}\bm{\Sigma}+\bm{\mu}\bm{\mu}^{\prime})\right) \\
+&= \frac{1}{n-1}\left(n\bm{\Sigma}+n\bm{\mu}\bm{\mu}^{\prime}-\bm{\Sigma}-n\bm{\mu}\bm{\mu}^{\prime}-\bm{\Sigma}-n\bm{\mu}\bm{\mu}^{\prime}+\bm{\Sigma}+n\bm{\mu}\bm{\mu}^{\prime}\right) \\
+&= \frac{1}{n-1}((n-1)\bm{\Sigma}) \\
+&= \bm{\Sigma}
+\end{align*}
+したがって、$E[\bm{S}]=\bm{\Sigma}$ であり、$\bm{S}$ は $\bm{\Sigma}$ の不偏推定値です。
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{ステップ2: Rao-Blackwell / Lehmann-Scheffé の定理の適用}
+\begin{block}{Lehmann-Schefféの定理の記述}
+Lehmann-Schefféの定理は、「もし、ある統計量 $T$ が完全かつ十分 (Complete and Sufficient) であり、$\hat{\bm{\theta}}^* = g(T)$ が $T$ の関数であり、かつパラメータ $\bm{\theta}$ の不偏推定値であるならば、$\hat{\bm{\theta}}^*$ は $\bm{\theta}$ の最小分散不偏推定量 (MVUE) である」と述べています。
+\end{block}
+\begin{block}{定理の適用}
+\begin{itemize}
+    \item パラメータ $\bm{\theta}$ は $(\bm{\mu},\bm{\Sigma})$ に対応します。
+    \item 統計量 $T$ は $(\overline{\bm{x}},\bm{S})$ に対応します。テキストには、$(\bm{X}^{\prime}\bm{X},\overline{\bm{x}})$ (または $(\bm{S},\overline{\bm{x}})$ のような1対1関数) が $(\bm{\Sigma},\bm{\mu})$ に対して最小十分かつ完全であることが述べられています  。
+    \item $\overline{\bm{x}}$ は $T=(\overline{\bm{x}},\bm{S})$ の関数（具体的には第一成分）であり、ステップ1で $\bm{\mu}$ の不偏推定値であることを示しました。
+    \item $\bm{S}$ は $T=(\overline{\bm{x}},\bm{S})$ の関数（具体的には第二成分）であり、ステップ1で $\bm{\Sigma}$ の不偏推定値であることを示しました。
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{結論}
+\begin{block}{}
+上記の条件がすべて満たされるため、Lehmann-Schefféの定理により、$\overline{\bm{x}}$ は $\bm{\mu}$ のMVUEであり、 $\bm{S}$ は $\bm{\Sigma}$ のMVUEであると結論付けられます。したがって、$(\overline{\bm{x}},\bm{S})$ は $(\bm{\Sigma},\bm{\mu})$ のMVUEであると述べることができます。
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{最尤推定値 (MLE) の目的}
+\begin{itemize}
+    \item この式 $\text{ln}|\bm{\Sigma}|+\text{tr}\frac{1}{n}V\bm{\Sigma}^{-1}+(\overline{\bm{x}}-\bm{\mu})^{\prime}\bm{\Sigma}^{-1}(\overline{\bm{x}}-\bm{\mu})$ (7.2) を最小化するのは、未知のパラメータである平均ベクトル $\bm{\mu}$ と共分散行列 $\bm{\Sigma}$ の最尤推定値 (Maximum Likelihood Estimates, MLE) を求めるためです.
+    \item 最尤推定法は、観測されたデータが最も「もっともらしい」と思われるようなパラメータの値を推定する統計的手法です.
+    \item これを数学的に行うには、データの確率密度関数（または確率質量関数）をパラメータの関数と見なした「尤度関数」を最大化します.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{尤度関数から対数尤度関数へ}
+\begin{itemize}
+    \item 多変量正規分布の場合、観測された標本行列 $X$ の同時確率密度関数（尤度関数）は、以下のような形をしていました:
+    \[
+    f(X)=(2\pi)^{-\frac{np}{2}}|\bm{\Sigma}|^{-\frac{n}{2}}\text{etr}\left\{-\frac{1}{2}[V+n(\overline{\bm{x}}-\bm{\mu})(\overline{\bm{x}}-\bm{\mu})^{\prime}]\bm{\Sigma}^{-1}\right\} \quad \text{(7.1)} \text{}
+    \]
+    \item この尤度関数を直接最大化する代わりに、通常は計算が容易な対数尤度関数を最大化します.
+    \item 上記の確率密度関数に自然対数 $\text{ln}$ を取ると、以下のようになります:
+    \begin{align*}
+    \text{ln}f(X)&=\text{ln}\left((2\pi)^{-\frac{np}{2}}|\bm{\Sigma}|^{-\frac{n}{2}}\text{etr}\left\{-\frac{1}{2}[V+n(\overline{\bm{x}}-\bm{\mu})(\overline{\bm{x}}-\bm{\mu})^{\prime}]\bm{\Sigma}^{-1}\right\}\right) \text{} \\
+    &=-\frac{np}{2}\text{ln}(2\pi)-\frac{n}{2}\text{ln}|\bm{\Sigma}|-\frac{1}{2}\text{tr}\left([V+n(\overline{\bm{x}}-\bm{\mu})(\overline{\bm{x}}-\bm{\mu})^{\prime}]\bm{\Sigma}^{-1}\right) \text{}
+    \end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{対数尤度関数の簡略化と最小化}
+\begin{itemize}
+    \item この対数尤度関数を $l(\bm{\Sigma},\bm{\mu})$ と表すとき、MLEを得るためには $l(\bm{\Sigma},\bm{\mu})$ を最大化する必要があります.
+    \item ここで、定数項である $-\frac{np}{2}\text{ln}(2\pi)$ はパラメータ $\bm{\Sigma}$ や $\bm{\mu}$ に依存しないため、最大化には影響しません.
+    \item したがって、最大化すべきは残りの項です:
+    \[
+    l(\bm{\Sigma},\bm{\mu})\propto-\frac{n}{2}\text{ln}|\bm{\Sigma}|-\frac{1}{2}\text{tr}\left([V+n(\overline{\bm{x}}-\bm{\mu})(\overline{\bm{x}}-\bm{\mu})^{\prime}]\bm{\Sigma}^{-1}\right) \text{}
+    \]
+    \item この式を最大化することは、符号を反転させて最小化することと同じです.
+    \item そして、全体を $\frac{n}{2}$ で割っても最大化/最小化の結果は変わらないため、以下の式を最小化することになります:
+    \begin{align*}
+    &\frac{1}{n}\text{tr}\left([V+n(\overline{\bm{x}}-\bm{\mu})(\overline{\bm{x}}-\bm{\mu})^{\prime}]\bm{\Sigma}^{-1}\right)+\text{ln}|\bm{\Sigma}| \text{} \\
+    =&\frac{1}{n}\text{tr}(V\bm{\Sigma}^{-1})+\frac{1}{n}\text{tr}(n(\overline{\bm{x}}-\bm{\mu})(\overline{\bm{x}}-\bm{\mu})^{\prime}\bm{\Sigma}^{-1})+\text{ln}|\bm{\Sigma}| \text{} \\
+    =&\frac{1}{n}\text{tr}(V\bm{\Sigma}^{-1})+\text{tr}((\overline{\bm{x}}-\bm{\mu})(\overline{\bm{x}}-\bm{\mu})^{\prime}\bm{\Sigma}^{-1})+\text{ln}|\bm{\Sigma}| \text{} \\
+    =&\text{ln}|\bm{\Sigma}|+\text{tr}\frac{1}{n}V\bm{\Sigma}^{-1}+(\overline{\bm{x}}-\bm{\mu})^{\prime}\bm{\Sigma}^{-1}(\overline{\bm{x}}-\bm{\mu}) \quad \text{(7.2)} \text{}
+    \end{align*}
+    （最後の項はスカラーなので $\text{tr}$ を外すことができます 。）
+    \item この式は、テキストに示されている式 (7.2) と完全に一致します.
+    \item したがって、この式を最小化する目的は、観測されたデータの下で、母集団パラメータである平均ベクトル $\bm{\mu}$ と共分散行列 $\bm{\Sigma}$ が最も「もっともらしい」値（すなわち最尤推定値）を見つけるためです.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{ステップ1: $\hat{\bm{\mu}}=\overline{\bm{x}}$ の特定と最後の項の除去}
+\begin{itemize}
+    \item テキストにあるように、「（最後の項は $\ge0$ なので）$\hat{\bm{\mu}}=\overline{\bm{x}}$ であることは明らか」です。
+    \item この「最後の項」とは、$+(\overline{\bm{x}}-\bm{\mu})^{\prime}\bm{\Sigma}^{-1}(\overline{\bm{x}}-\bm{\mu})$ のことです。
+    \item この項は、$\bm{\Sigma}$ が正定値行列（つまり $\bm{\Sigma}^{-1}$ も正定値行列）であるため、常に0以上（$\ge0$）です。
+    \item この項を最小化するためには、その値を0にするのが最も小さい値です。
+    \item $(\overline{\bm{x}}-\bm{\mu})^{\prime}\bm{\Sigma}^{-1}(\overline{\bm{x}}-\bm{\mu})=0$ となるのは、$\overline{\bm{x}}-\bm{\mu}=0$ のとき、すなわち $\bm{\mu}=\overline{\bm{x}}$ のときです。
+    \item したがって、$\bm{\mu}$ に関する最尤推定値 $\hat{\bm{\mu}}$ は $\overline{\bm{x}}$ であると直ちに分かります。
+    \item $\hat{\bm{\mu}}=\overline{\bm{x}}$ を元の式に代入すると、最後の項は0になります。
+    \begin{align*}
+    &\text{ln}|\bm{\Sigma}|+\text{tr}\frac{1}{n}V\bm{\Sigma}^{-1}+(\overline{\bm{x}}-\overline{\bm{x}})^{\prime}\bm{\Sigma}^{-1}(\overline{\bm{x}}-\overline{\bm{x}}) \\
+    =&\text{ln}|\bm{\Sigma}|+\text{tr}\frac{1}{n}V\bm{\Sigma}^{-1}+0^{\prime}\bm{\Sigma}^{-1}0 \\
+    =&\text{ln}|\bm{\Sigma}|+\text{tr}\frac{1}{n}V\bm{\Sigma}^{-1}
+    \end{align*}
+    \item これにより、$\bm{\Sigma}$ の最尤推定値 $\hat{\bm{\Sigma}}$ を得るためには、この簡略化された式を最小化すればよいことになります。
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{ステップ2: $\text{ln}|\bm{\Sigma}|$ の変形と $V$ の導入}
+\begin{itemize}
+    \item 最小化すべき式：
+    \[ \text{ln}|\bm{\Sigma}|+\text{tr}\frac{1}{n}V\bm{\Sigma}^{-1} \]
+    \item ここで、テキストでは「$\text{ln}|nV^{-1}\bm{\Sigma}|$」という項が導入されています。これは、最小化の問題をさらに簡潔にするための変数変換の準備です。
+    \item 行列式の性質を利用します。
+    \begin{itemize}
+        \item $|AB|=|A||B|$
+        \item $|cA|=c^p|A|$ （ここで $c$ はスカラー、$A$ は $p \times p$ 行列）
+    \end{itemize}
+    \item $\text{ln}|\bm{\Sigma}|$ を $V$ を含む形に変換するために、恒等式 $I=V^{-1}V$ を利用することを考えます。
+    \begin{align*}
+    \text{ln}|\bm{\Sigma}|&=\text{ln}|V^{-1}V\bm{\Sigma}| \\
+    &=\text{ln}|V^{-1}(V\bm{\Sigma})| \\
+    &=\text{ln}|nV^{-1}|+\text{ln}|\frac{1}{n}V\bm{\Sigma}|
+    \end{align*}
+    \item しかし、テキストの変形は異なるアプローチを取っています。テキストの変形は、以下のように示されています:
+\end{itemize}
+\end{frame}
+\begin{frame}
+    \begin{itemize}
+        \item 
+        \[
+        \text{ln}|nV^{-1}\bm{\Sigma}|+\text{tr}\frac{1}{n}V\bm{\Sigma}^{-1}
+        \]
+        \item これは、以下の恒等式（定数を追加・削除しても最小化の問題は変わらない）に基づいています。
+        \[
+        \text{ln}|\bm{\Sigma}|=\text{ln}|nV^{-1}\bm{\Sigma}|-\text{ln}|nV^{-1}|
+        \]
+        \item ここで、$\text{ln}|nV^{-1}|$ は $\bm{\Sigma}$ に依存しない定数です。
+        \item したがって、最小化すべき式 $\text{ln}|\bm{\Sigma}|+\text{tr}\frac{1}{n}V\bm{\Sigma}^{-1}$ は、定数項 $\text{ln}|nV^{-1}|$ を追加（または削除）しても、$\bm{\Sigma}$ の最適値は変わりません。
+        \item
+        \begin{align*}
+        &\text{ln}|\bm{\Sigma}|+\text{tr}\frac{1}{n}V\bm{\Sigma}^{-1} \\
+        =&(\text{ln}|nV^{-1}\bm{\Sigma}|-\text{ln}|nV^{-1}|)+\text{tr}\frac{1}{n}V\bm{\Sigma}^{-1} \\
+        =&\text{ln}|nV^{-1}\bm{\Sigma}|+\text{tr}\frac{1}{n}V\bm{\Sigma}^{-1}-\text{ln}|nV^{-1}|
+        \end{align*}
+        \item テキストでは、この定数項 $-\text{ln}|nV^{-1}|$ を「追加された定数」として無視し、以下の式を最小化することに焦点を当てています。
+        \[
+        \text{ln}|nV^{-1}\bm{\Sigma}|+\text{tr}\frac{1}{n}V\bm{\Sigma}^{-1}
+        \]
+    \end{itemize}
+\end{frame}
+\begin{frame}{7.3 Wishart分布の性質 - 命題}
+\begin{block}{命題 7.3}
+$W \sim W_p(m)$ かつ $m \ge p$ ならば、$W$ は確率1で非特異である。
+\end{block}
+
+$W \overset{d}{=} Z'Z$ であり、$Z' = (z_1, \dots, z_m)$ かつ $z_i$ は独立同分布の $N_p(0, I)$ に従う。\\
+$\text{rank } W \overset{d}{=} \text{rank } Z'Z = \text{rank } Z \ge \text{rank } (z_1, \dots, z_p)$ は確率1で $p$ となる。\\
+したがって、$\text{rank } W$ は確率1で $p$ となる。
+\end{frame}
+
+
 \begin{frame}{7.2 $\bar{x}$ と $S$ の同時分布 (続き)}
 \begin{itemize}
     \item 一般的な結果として、$\bar{x}$ は $N_p(\mu, \Sigma/n)$ に従う 。
@@ -308,9 +537,6 @@ $W \overset{d}{=} Z'Z$ であり、$Z' = (z_1, \dots, z_m)$ かつ $z_i$ は独�
 $\text{rank } W \overset{d}{=} \text{rank } Z'Z = \text{rank } Z \ge \text{rank } (z_1, \dots, z_p)$ は確率1で $p$ となる。\\
 したがって、$\text{rank } W$ は確率1で $p$ となる。
 \end{frame}
-
-% ここに新しいスライドや内容を追加できます
-\end{CJK}
+% \end{CJK} % zxjafont を使用する場合、この環境は不要です。
 \end{document}
-
 
