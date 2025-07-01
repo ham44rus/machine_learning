@@ -1,1 +1,0 @@
-\beamer@sectionintoc {1}{Wishart分布}{3}{0}{1}
