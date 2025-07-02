@@ -56,9 +56,7 @@
 \begin{frame}{7.1 はじめに}
 \begin{itemize}
     \item 7.2節では、$x_1, \dots, x_n$ が独立同分布で $x \sim N_p(\mu, \Sigma)$ かつ $\Sigma>0$ の場合の $\mu$ と $\Sigma$ の最尤推定量が導出される 。
-    \item $\bar{x}$ と $S$ の同時分布に関する基本的な結果が命題7.1で証明される 。
-    \item 7.3節では、Wishart分布の基本的な特性が研究される 。
-    \item 7.4節では、データの多変量正規性を高めるためのBox-Cox変換が提示される 。
+    \item 7.3節では、Wishart分布の基本的な特性 。
 \end{itemize}
 \end{frame}
 
@@ -93,21 +91,7 @@ f(x) = (2\pi)^{-p/2} |\Sigma|^{-1/2} \exp\left(-\frac{1}{2}(x - \mu)'\Sigma^{-1}
 \end{itemize}
 \end{frame}
 
-\begin{frame}{2行目}
-exp[tr(⋅)]=etr(⋅)の記法を用いると、確率密度関数は次のように表される 。
-\begin{align*}
-&(x_i - \mu)'\Sigma^{-1}(x_i - \mu) \\
-&= (x_i' - \mu')\Sigma^{-1}(x_i - \mu) \\
-&= x_i'\Sigma^{-1}x_i - x_i'\Sigma^{-1}\mu - \mu'\Sigma^{-1}x_i + \mu'\Sigma^{-1}\mu \\
-&= x_i'\Sigma^{-1}x_i - 2x_i'\Sigma^{-1}\mu + \mu'\Sigma^{-1}\mu \\
-\end{align*}
-\begin{itemize}
-\item \text{ここで、}\(\mu'\Sigma^{-1}x_i\) はスカラー値であり、スカラーの転置は自分自身なので、\(\mu'\Sigma^{-1}x_i = (x_i'\Sigma^{-1}\mu)'\) です。\\
-したがって、\(x_i'\Sigma^{-1}\mu\) と \(\mu'\Sigma^{-1}x_i\) は同じスカラー値を表します。
-\end{itemize}
-\end{frame}
-\begin{frame}{2行目 (続き)} % フレームタイトルを修正して区別
-exp[tr(⋅)]=etr(⋅)の記法を用いると、確率密度関数は次のように表される 。
+\begin{frame}{2行目} % フレームタイトルを修正して区別
 
 \begin{align*}
 &(x_i - \mu)'\Sigma^{-1}(x_i - \mu) \\
@@ -122,12 +106,14 @@ exp[tr(⋅)]=etr(⋅)の記法を用いると、確率密度関数は次のよ�
 \end{frame}
 
 \begin{frame}{2行目 (さらに続き)} % フレームタイトルを修正して区別
-\begin{itemize}
-    \item $\mu'$は平均ベクトル$\mu$の転置を表し、$\mu$はp次元の列ベクトルなので、$\mu'$は1行p列の行ベクトルになります。
-    \item $\Sigma^{-1}$は共分散行列$\Sigma$の逆行列を表し、$\Sigma$はp*pの正方行列なので、$\Sigma^{-1}$もp*pの正方行列になります。
-    \item $x_i$はp次元の列ベクトルであり、$x_i'$はその転置で1行p列の行ベクトルになります。
-\end{itemize}
-よって、$(x_i - \mu)' \Sigma^{-1} (x_i - \mu)$はスカラー値であります。\\
+$\mu'$は平均ベクトル$\mu$の転置を表し、$\mu$はp次元の列ベクトルなので、
+$\mu'$は1行p列の行ベクトルになります。
+$\Sigma^{-1}$は共分散行列$\Sigma$の逆行列を表し、$\Sigma$はp*pの正方行列なので、
+$\Sigma^{-1}$もp*pの正方行列になります。\\
+
+$x_i$はp次元の列ベクトルであり、$x_i'$はその転置で1行p列の行ベクトルになります。\\[1em]
+
+よって、$(x_i - \mu)' \Sigma^{-1} (x_i - \mu)$はスカラー値であります。\\[0.5em]
 また、$\mu'\Sigma^{-1}\mu\text{は、}e^{-\frac{1}{2}n\mu'\Sigma^{-1}\mu}$の形で指数関数に含まれます。
 \end{frame}
 
@@ -170,7 +156,7 @@ exp[tr(⋅)]=etr(⋅)の記法を用いると、確率密度関数は次のよ�
 
 \begin{frame}{第3項目}
 \begin{align*}
-\sum_{i=1}^n \mu'\Sigma^{-1}\mu\text{はスカラー値であり、これが n 回足されます。}\\
+\sum_{i=1}^n \mu'\Sigma^{-1}\mu\text{はスカラー値であり、これが n 回たされます。}
 \sum_{i=1}^n \mu'\Sigma^{-1}\mu 
 = n\mu'\Sigma^{-1}\mu
 \end{align*}
@@ -270,7 +256,73 @@ $T$ がパラメータ $\theta$ の完全かつ十分な統計量であるとす
 \[
 \mathrm{etr}\left\{-\frac{1}{2}\left[V + n(\bar{x} - \mu)(\bar{x} - \mu)'\right]\Sigma^{-1}\right\}
 \]
-という形で書けることから、観測されたデータ $X$ の情報のうち、パラメータ $\mu$ と $\Sigma$ に影響を与える部分は、本質的に $V$（または $S$）と $\bar{x}$ に集約されていることが読み取れます。これにより、これらが十分統計量であることが示唆されます。
+という形で書けることから、観測されたデータ $X$ の情報のうち、パラメータ $\mu$ と $\Sigma$ に影響を与える部分は、本質的に $V$（または $S$）と $\bar{x}$ に集約されています。\\
+\end{frame}
+
+\begin{frame}
+\frametitle{多変量正規分布は指数族の一つである}
+\begin{itemize}
+    \item 多変量正規分布の確率密度関数を指数族の形で表現してみましょう。
+    \item 確率密度関数は次のように書けます：
+    \begin{align*}
+    f(\bm{x}|\bm{\mu},\bm{\Sigma}) &= (2\pi)^{-\frac{p}{2}}|\bm{\Sigma}|^{-\frac{1}{2}}\exp\left\{-\frac{1}{2}(\bm{x}-\bm{\mu})^{\prime}\bm{\Sigma}^{-1}(\bm{x}-\bm{\mu})\right\} \\
+    &= (2\pi)^{-\frac{p}{2}}|\bm{\Sigma}|^{-\frac{1}{2}}\exp\left\{-\frac{1}{2}\bm{x}^{\prime}\bm{\Sigma}^{-1}\bm{x}+\bm{\mu}^{\prime}\bm{\Sigma}^{-1}\bm{x}-\frac{1}{2}\bm{\mu}^{\prime}\bm{\Sigma}^{-1}\bm{\mu}\right\}
+    \end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{多変量正規分布を指数族の形に書き換える}
+\begin{itemize}
+    \item 上記の密度関数を指数族の一般形に変形します：
+    \begin{align*}
+    f(\bm{x}|\bm{\mu},\bm{\Sigma}) &= (2\pi)^{-\frac{p}{2}}|\bm{\Sigma}|^{-\frac{1}{2}}\exp\left\{-\frac{1}{2}\bm{x}^{\prime}\bm{\Sigma}^{-1}\bm{x}+\bm{\mu}^{\prime}\bm{\Sigma}^{-1}\bm{x}-\frac{1}{2}\bm{\mu}^{\prime}\bm{\Sigma}^{-1}\bm{\mu}\right\} \\
+    &= \underbrace{(2\pi)^{-\frac{p}{2}}}_{h(\bm{x})}\exp\left\{\underbrace{\begin{pmatrix}\bm{\mu}^{\prime}\bm{\Sigma}^{-1} \\ -\frac{1}{2}\bm{\Sigma}^{-1}\end{pmatrix}^{\prime}}_{\bm{\eta}(\bm{\theta})^{\prime}}\underbrace{\begin{pmatrix}\bm{x} \\ \bm{x}\bm{x}^{\prime}\end{pmatrix}}_{T(\bm{x})}-\underbrace{\left(\frac{1}{2}\ln|\bm{\Sigma}|+\frac{1}{2}\bm{\mu}^{\prime}\bm{\Sigma}^{-1}\bm{\mu}\right)}_{A(\bm{\theta})}\right\}
+    \end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{i.i.d.標本における十分統計量}
+\begin{itemize}
+    \item 独立同分布な標本 $\bm{x}_1, \bm{x}_2, \ldots, \bm{x}_n$ における同時確率密度関数は：
+    \begin{align*}
+    f(\bm{x}_1,\ldots,\bm{x}_n|\bm{\mu},\bm{\Sigma}) &= \prod_{i=1}^{n}f(\bm{x}_i|\bm{\mu},\bm{\Sigma}) \\
+    &= (2\pi)^{-\frac{np}{2}}|\bm{\Sigma}|^{-\frac{n}{2}}\exp\left\{-\frac{1}{2}\sum_{i=1}^{n}(\bm{x}_i-\bm{\mu})^{\prime}\bm{\Sigma}^{-1}(\bm{x}_i-\bm{\mu})\right\}
+    \end{align*}
+    \item これを展開すると：
+    \begin{align*}
+    &= (2\pi)^{-\frac{np}{2}}|\bm{\Sigma}|^{-\frac{n}{2}}\exp\left\{-\frac{1}{2}\mathrm{tr}(\bm{\Sigma}^{-1}\bm{X}^{\prime}\bm{X})+n\bm{\mu}^{\prime}\bm{\Sigma}^{-1}\overline{\bm{x}}-\frac{n}{2}\bm{\mu}^{\prime}\bm{\Sigma}^{-1}\bm{\mu}\right\}
+    \end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{i.i.d.標本の同時分布を指数族の形で表現}
+\begin{itemize}
+    \item 同時分布を指数族の形に書き換えると：
+    \begin{align*}
+    &f(\bm{x}_1,\ldots,\bm{x}_n|\bm{\mu},\bm{\Sigma}) \\
+    &= \underbrace{(2\pi)^{-\frac{np}{2}}}_{h(\bm{x})}\exp\left\{\underbrace{\begin{pmatrix}n\bm{\mu}^{\prime}\bm{\Sigma}^{-1} \\ -\frac{1}{2}\bm{\Sigma}^{-1}\end{pmatrix}^{\prime}}_{\bm{\eta}(\bm{\theta})^{\prime}}\underbrace{\begin{pmatrix}\overline{\bm{x}} \\ \bm{X}^{\prime}\bm{X}\end{pmatrix}}_{T(\bm{x})}-\underbrace{\left(\frac{n}{2}\ln|\bm{\Sigma}|+\frac{n}{2}\bm{\mu}^{\prime}\bm{\Sigma}^{-1}\bm{\mu}\right)}_{A(\bm{\theta})}\right\}
+    \end{align*}
+    \item このことから、$T(\bm{x})=\begin{pmatrix}\overline{\bm{x}} \\ \bm{X}^{\prime}\bm{X}\end{pmatrix}$ が十分統計量であることがわかります。
+    \item また、$\bm{S}$ と $\bm{X}^{\prime}\bm{X}$ には次の関係があります：
+    \[
+    (n-1)\bm{S} = \bm{X}^{\prime}\bm{X} - n\overline{\bm{x}}\overline{\bm{x}}^{\prime}
+    \]
+    \item これより、$(\bm{S},\overline{\bm{x}})$ も十分統計量となります。
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{指数族に対するLehmann-Schefféの定理}
+\begin{block}{Lehmann-Schefféの定理の特別なケース}
+指数族のモデルにおいて、十分統計量 $T(\bm{x})$ がパラメータ $\bm{\theta}$ の関数 $g(\bm{\theta})$ の不偏推定量である場合、その推定量は最小分散不偏推定量（MVUE）である。
+\end{block}
+\begin{itemize}
+    \item 多変量正規分布の場合、$(\overline{\bm{x}},\bm{S})$ はそれぞれ $\bm{\mu}$ と $\bm{\Sigma}$ の不偏推定量であることが示されました。
+    \item 指数族である多変量正規分布では、$(\overline{\bm{x}},\bm{S})$ は十分統計量であるため、Lehmann-Schefféの定理により、$\overline{\bm{x}}$ は $\bm{\mu}$ のMVUEであり、$\bm{S}$ は $\bm{\Sigma}$ のMVUEであると結論づけることができます。
+\end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -308,7 +360,6 @@ E[\bm{S}] &= E\left[\frac{1}{n-1}\sum_{i=1}^{n}(\bm{x}_i-\overline{\bm{x}})(\bm{
 &= \frac{1}{n-1}E\left[\sum_{i=1}^{n}(\bm{x}_i\bm{x}_i^{\prime}-\bm{x}_i\overline{\bm{x}}^{\prime}-\overline{\bm{x}}\bm{x}_i^{\prime}+\overline{\bm{x}}\overline{\bm{x}}^{\prime})\right] \\
 &= \frac{1}{n-1}\left(\sum_{i=1}^{n}E[\bm{x}_i\bm{x}_i^{\prime}]-\sum_{i=1}^{n}E[\bm{x}_i\overline{\bm{x}}^{\prime}]-\sum_{i=1}^{n}E[\overline{\bm{x}}\bm{x}_i^{\prime}]+\sum_{i=1}^{n}E[\overline{\bm{x}}\overline{\bm{x}}^{\prime}]\right)
 \end{align*}
-ここで、各項を評価します。
 \begin{itemize}
     \item $E[\bm{x}_i\bm{x}_i^{\prime}]=\text{Cov}(\bm{x}_i)+E[\bm{x}_i]E[\bm{x}_i^{\prime}]=\bm{\Sigma}+\bm{\mu}\bm{\mu}^{\prime}$。
     \item $E[\overline{\bm{x}}\overline{\bm{x}}^{\prime}]=\text{Cov}(\overline{\bm{x}})+E[\overline{\bm{x}}]E[\overline{\bm{x}}^{\prime}]=\frac{1}{n}\bm{\Sigma}+\bm{\mu}\bm{\mu}^{\prime}$ (∵ $\overline{\bm{x}}\sim N_p(\bm{\mu},\frac{1}{n}\bm{\Sigma})$)。
@@ -332,20 +383,6 @@ E[\bm{S}] &= \frac{1}{n-1}\left(\sum_{i=1}^{n}(\bm{\Sigma}+\bm{\mu}\bm{\mu}^{\pr
 \end{block}
 \end{frame}
 
-\begin{frame}
-\frametitle{ステップ2: Rao-Blackwell / Lehmann-Scheffé の定理の適用}
-\begin{block}{Lehmann-Schefféの定理の記述}
-Lehmann-Schefféの定理は、「もし、ある統計量 $T$ が完全かつ十分 (Complete and Sufficient) であり、$\hat{\bm{\theta}}^* = g(T)$ が $T$ の関数であり、かつパラメータ $\bm{\theta}$ の不偏推定値であるならば、$\hat{\bm{\theta}}^*$ は $\bm{\theta}$ の最小分散不偏推定量 (MVUE) である」と述べています。
-\end{block}
-\begin{block}{定理の適用}
-\begin{itemize}
-    \item パラメータ $\bm{\theta}$ は $(\bm{\mu},\bm{\Sigma})$ に対応します。
-    \item 統計量 $T$ は $(\overline{\bm{x}},\bm{S})$ に対応します。テキストには、$(\bm{X}^{\prime}\bm{X},\overline{\bm{x}})$ (または $(\bm{S},\overline{\bm{x}})$ のような1対1関数) が $(\bm{\Sigma},\bm{\mu})$ に対して最小十分かつ完全であることが述べられています  。
-    \item $\overline{\bm{x}}$ は $T=(\overline{\bm{x}},\bm{S})$ の関数（具体的には第一成分）であり、ステップ1で $\bm{\mu}$ の不偏推定値であることを示しました。
-    \item $\bm{S}$ は $T=(\overline{\bm{x}},\bm{S})$ の関数（具体的には第二成分）であり、ステップ1で $\bm{\Sigma}$ の不偏推定値であることを示しました。
-\end{itemize}
-\end{block}
-\end{frame}
 
 \begin{frame}
 \frametitle{結論}
@@ -358,8 +395,10 @@ Lehmann-Schefféの定理は、「もし、ある統計量 $T$ が完全かつ�
 \frametitle{最尤推定値 (MLE) の目的}
 \begin{itemize}
     \item この式 $\text{ln}|\bm{\Sigma}|+\text{tr}\frac{1}{n}V\bm{\Sigma}^{-1}+(\overline{\bm{x}}-\bm{\mu})^{\prime}\bm{\Sigma}^{-1}(\overline{\bm{x}}-\bm{\mu})$ (7.2) を最小化するのは、未知のパラメータである平均ベクトル $\bm{\mu}$ と共分散行列 $\bm{\Sigma}$ の最尤推定値 (Maximum Likelihood Estimates, MLE) を求めるためです.
-    \item 最尤推定法は、観測されたデータが最も「もっともらしい」と思われるようなパラメータの値を推定する統計的手法です.
-    \item これを数学的に行うには、データの確率密度関数（または確率質量関数）をパラメータの関数と見なした「尤度関数」を最大化します.
+    \item 最尤推定法は、観測されたデータが最も「もっともらしい」と思われるような
+    パラメータの値を推定する統計的手法です.
+    \item これを数学的に行うには、データの確率密度関数（または確率質量関数）を
+    パラメータの関数と見なした「尤度関数」を最大化します.
 \end{itemize}
 \end{frame}
 
@@ -370,7 +409,7 @@ Lehmann-Schefféの定理は、「もし、ある統計量 $T$ が完全かつ�
     \[
     f(X)=(2\pi)^{-\frac{np}{2}}|\bm{\Sigma}|^{-\frac{n}{2}}\text{etr}\left\{-\frac{1}{2}[V+n(\overline{\bm{x}}-\bm{\mu})(\overline{\bm{x}}-\bm{\mu})^{\prime}]\bm{\Sigma}^{-1}\right\} \quad \text{(7.1)} \text{}
     \]
-    \item この尤度関数を直接最大化する代わりに、通常は計算が容易な対数尤度関数を最大化します.
+    \item この尤度関数を直接最大化する代わりに、対数尤度関数を最大化します.
     \item 上記の確率密度関数に自然対数 $\text{ln}$ を取ると、以下のようになります:
     \begin{align*}
     \text{ln}f(X)&=\text{ln}\left((2\pi)^{-\frac{np}{2}}|\bm{\Sigma}|^{-\frac{n}{2}}\text{etr}\left\{-\frac{1}{2}[V+n(\overline{\bm{x}}-\bm{\mu})(\overline{\bm{x}}-\bm{\mu})^{\prime}]\bm{\Sigma}^{-1}\right\}\right) \text{} \\
