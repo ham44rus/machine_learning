@@ -1,0 +1,4 @@
+\beamer@sectionintoc {1}{7.Wishart分布}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{7.1Introduction}{3}{0}{1}
+\beamer@subsectionintoc {1}{2}{7.2Joint distribution of $\bar {x}$ and $S$}{3}{0}{1}
+\beamer@subsectionintoc {1}{3}{7.3Properties of Wishart distributions}{3}{0}{1}
