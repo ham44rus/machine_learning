@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.8.19)  2 JUL 2025 15:52
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.8.19)  6 JUL 2025 18:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1263,7 +1263,7 @@ Overfull \hbox (6.34pt too wide) in paragraph at lines 531--531
 ] [40
 
 ]
-Overfull \vbox (15.76224pt too high) detected at line 569
+Overfull \vbox (15.76224pt too high) detected at line 568
  []
 
 [41
@@ -1275,7 +1275,7 @@ Overfull \vbox (15.76224pt too high) detected at line 569
 ] [44
 
 ]
-Overfull \hbox (168.90576pt too wide) in paragraph at lines 619--619
+Overfull \hbox (168.90576pt too wide) in paragraph at lines 618--618
 \TU/ipaexg.ttf(0)/b/it/10.95 この記述が「明らか」とされるのは、多変量正規分布の線形変換と標本平均の性質に関する標準的な結果だからです。  
  []
 
@@ -1286,7 +1286,7 @@ Overfull \hbox (168.90576pt too wide) in paragraph at lines 619--619
 ] [47
 
 ]
-Overfull \vbox (11.03777pt too high) detected at line 675
+Overfull \vbox (11.03777pt too high) detected at line 674
  []
 
 [48
@@ -1296,7 +1296,7 @@ Overfull \vbox (11.03777pt too high) detected at line 675
 ] [50
 
 ]
-Overfull \hbox (182.74829pt too wide) in paragraph at lines 713--713
+Overfull \hbox (182.74829pt too wide) in paragraph at lines 712--712
 \TU/ipaexg.ttf(0)/b/it/10.95 統計的独立性とは、一方の変数の値が分かっても、もう一方の変数の値に関する情報が何も得られない、という関係です.  
  []
 
@@ -1305,7 +1305,7 @@ Overfull \hbox (182.74829pt too wide) in paragraph at lines 713--713
 ] [52
 
 ]
-Overfull \hbox (13.0975pt too wide) in paragraph at lines 735--735
+Overfull \hbox (13.0975pt too wide) in paragraph at lines 734--734
 \TU/ipaexg.ttf(0)/b/it/10 これは、平均への射影と平均からの偏差への射影が互いに直交していることを意味します.  
  []
 
@@ -1314,7 +1314,7 @@ Overfull \hbox (13.0975pt too wide) in paragraph at lines 735--735
 ] [54
 
 ]
-Overfull \hbox (4.65579pt too wide) in paragraph at lines 756--756
+Overfull \hbox (4.65579pt too wide) in paragraph at lines 755--755
 \TU/ipaexg.ttf(0)/b/it/10.95 この性質は、正規分布の直交射影による分割が独立性をもたらすことに由来します。  
  []
 
@@ -1332,19 +1332,19 @@ Overfull \hbox (4.65579pt too wide) in paragraph at lines 756--756
 
 ]
 LaTeX Font Info:    Font shape `TU/ipaexg.ttf(0)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 853.
+(Font)              scaled to size 9.0pt on input line 852.
 LaTeX Font Info:    Font shape `TU/ipaexm.ttf(0)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 853.
+(Font)              scaled to size 9.0pt on input line 852.
 LaTeX Font Info:    Font shape `TU/ipaexg.ttf(0)/m/it' will be
-(Font)              scaled to size 9.0pt on input line 853.
+(Font)              scaled to size 9.0pt on input line 852.
 LaTeX Font Info:    Font shape `TU/ipaexg.ttf(0)/bx/it' in size <9> not available
-(Font)              Font shape `TU/ipaexg.ttf(0)/b/n' tried instead on input line 853.
+(Font)              Font shape `TU/ipaexg.ttf(0)/b/n' tried instead on input line 852.
 LaTeX Font Info:    Font shape `TU/ipaexg.ttf(0)/b/n' will be
-(Font)              scaled to size 9.0pt on input line 853.
+(Font)              scaled to size 9.0pt on input line 852.
  [61
 
 ]
-Overfull \hbox (26.55579pt too wide) in paragraph at lines 869--869
+Overfull \hbox (26.55579pt too wide) in paragraph at lines 868--868
 \TU/ipaexg.ttf(0)/b/it/10.95 より一般的な正規分布は、単純に位置を移動し、スケールを変更することで得られます。  
  []
 
@@ -1354,54 +1354,40 @@ Overfull \hbox (26.55579pt too wide) in paragraph at lines 869--869
 
 ] [64
 
-]
-Overfull \hbox (671.30103pt too wide) in paragraph at lines 908--908
-\TU/ipaexg.ttf(0)/b/it/10.95 という正規分布に従うランダムな値です。正規分布は連続的な分布なので、ある特定の値（この場合は0）をちょうど取る確率はゼロです。例えば、身長がぴったり170.000...cmになる確率はゼロ、というのと同じです。  
- []
-
-[65
+] [65
 
 ] [66
 
 ] [67
 
-]
-Overfull \hbox (139.2868pt too wide) in paragraph at lines 956--956
-\TU/ipaexg.ttf(0)/b/it/10.95 の場合と同じ理由で、連続分布に従う確率変数（$[][]$）が、ある特定の定数とぴったり一致する確率はゼロです。  
- []
-
-[68
+] [68
 
 ] [69
 
 ] [70
 
-] [71
-
 ]
-Overfull \hbox (1.0842pt too wide) in paragraph at lines 1014--1014
+Overfull \hbox (1.0842pt too wide) in paragraph at lines 1004--1004
 \TU/ipaexg.ttf(0)/b/it/10.95 が任意の絶対連続分布を持つ場合にも有効であることに注意すべきです。これで、[Stein 
  []
 
-[72
+[71
 
-]
-Overfull \vbox (144.31197pt too high) detected at line 1035
- []
+] [72
 
-[73
+] [73
 
 ] [74
 
 ] [75
 
 ]
-Overfull \hbox (190.4559pt too wide) in paragraph at lines 1081--1081
+Overfull \hbox (190.4559pt too wide) in paragraph at lines 1077--1077
 \TU/ipaexg.ttf(0)/b/it/10 の列ベクトルのうち線形独立なものの最大数、または行ベクトルのうち線形独立なものの最大数（これはどちらも同じ値）です。  
  []
 
 
-Overfull \hbox (154.92316pt too wide) in paragraph at lines 1081--1081
+Overfull \hbox (154.92316pt too wide) in paragraph at lines 1077--1077
 \TU/ipaexg.ttf(0)/b/it/10 補題7.1や系7.1で証明されたように、独立な正規分布の要素からなる行列が特異になる確率はゼロです。したがって、$[] \OMS/cmsy/m/n/10 ^^B 
  []
 
@@ -1433,4 +1419,4 @@ Here is how much of TeX's memory you used:
  1348 hyphenation exceptions out of 8191
  128i,28n,122p,569b,845s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on applied-mathematics-research-resume1.xdv (76 pages, 553912 bytes).
+Output written on applied-mathematics-research-resume1.xdv (76 pages, 548796 bytes).

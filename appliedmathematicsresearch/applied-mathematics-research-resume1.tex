@@ -563,7 +563,6 @@ E[\bm{S}] &= \frac{1}{n-1}\left(\sum_{i=1}^{n}(\bm{\Sigma}+\bm{\mu}\bm{\mu}^{\pr
         \frac{1}{\lambda}-\frac{1}{\lambda^2}&=0 \\
         \frac{1}{\lambda}&=\frac{1}{\lambda^2} \\
         \lambda^2&=\lambda \\
-        \lambda(\lambda-1)&=0
     \end{align*}
 \end{itemize}
 \end{frame}
@@ -571,15 +570,15 @@ E[\bm{S}] &= \frac{1}{n-1}\left(\sum_{i=1}^{n}(\bm{\Sigma}+\bm{\mu}\bm{\mu}^{\pr
 \begin{frame}
 \frametitle{各固有値ごとの最小化 (2)}
 \begin{itemize}
-    \item $\lambda=0$ または $\lambda=1$。
-    \item しかし、行列式 $|T|$ は非ゼロでなければならない（ウィシャート分布の文脈で $V$ は非特異なので）ため、固有値 $\lambda$ は0ではありえません。
-    \item したがって、唯一の極値点は $\lambda=1$ です。
-    \item 二階微分を調べて、これが最小値であることを確認します。
-    \begin{align*}
-        g^{\prime\prime}(\lambda)&=\frac{d}{d\lambda}(\lambda^{-1}-\lambda^{-2}) \\
-        g^{\prime\prime}(\lambda)&=-\lambda^{-2}+2\lambda^{-3}=-\frac{1}{\lambda^2}+\frac{2}{\lambda^3}
-    \end{align*}
-    \item $\lambda=1$ のとき、$g^{\prime\prime}(1)=-1+2=1>0$ なので、これは極小値であり、唯一の最小値です。
+    \item $\lambda(\lambda-1)=0$より、$\lambda=0$ または $\lambda=1$。
+        \item しかし、行列式 $|T|$ は非ゼロでなければならない（ウィシャート分布の文脈で $V$ は非特異なので）ため、固有値 $\lambda$ は0ではありえません。
+        \item したがって、唯一の極値点は $\lambda=1$ です。
+        \item 二階微分を調べて、これが最小値であることを確認します。
+        \begin{align*}
+            g^{\prime\prime}(\lambda)&=\frac{d}{d\lambda}(\lambda^{-1}-\lambda^{-2}) \\
+            g^{\prime\prime}(\lambda)&=-\lambda^{-2}+2\lambda^{-3}=-\frac{1}{\lambda^2}+\frac{2}{\lambda^3}
+        \end{align*}
+        \item $\lambda=1$ のとき、$g^{\prime\prime}(1)=-1+2=1>0$ なので、これは極小値であり、唯一の最小値です。
 \end{itemize}
 \end{frame}
 
@@ -705,7 +704,7 @@ Gaussに遡るよく知られた結果として、$\mathbb{R}$ 上の確率密�
 \begin{frame}
 \frametitle{「$\perp\perp$」の意味}
 \begin{itemize}
-    \item 数学や統計学において、「$\perp\perp$」という記号は、通常\textbf{統計的独立性 (statistical independence)} を意味します.
+    \item 数学や統計学において、「$\perp\perp$」という記号は、\textbf{統計的独立性 (statistical independence)} を意味します.
     \item $A\perp\perp B$ と書かれた場合、それは確率変数（またはベクトル、行列）$A$ と $B$ が互いに統計的に独立であることを意味します.
     \item 統計的独立性とは、一方の変数の値が分かっても、もう一方の変数の値に関する情報が何も得られない、という関係です.
     \item つまり、2つの事象や変数が互いに影響し合わない状態を指します.
@@ -797,7 +796,7 @@ Gaussに遡るよく知られた結果として、$\mathbb{R}$ 上の確率密�
 \begin{frame}{7.2 $\bar{x}$ と $S$ の同時分布 (続き)}
 \begin{itemize}
     \item 一般的な結果として、$\bar{x}$ は $N_p(\mu, \Sigma/n)$ に従う 。
-    \item 標本行列 $X$ を $Z$ を用いて表す。$X \overset{d}{=} ZA' + 1\mu'$, ここで $Z \sim N_n^p(0, I_n \otimes I_p)$ かつ $\Sigma=AA'$ 。
+    \item 標本行列 $X$ を $Z$ を用いて表す。$X \overset{d}{=} ZA' + 1\mu'$, ここで ($Z \sim N_n^p(0, I_n \otimes I_p)$ かつ) $\Sigma=AA'$ 。
     \item $\bar{x}$ と $S_x$ の分布は $\bar{x}$ と $S_z$ の分布に等しい 。
     \item $P=n^{-1}11'$ と $Q=I-n^{-1}11'$ は直交射影である 。
     \item $PZ \perp QZ$ であるため、$\bar{z} \perp S_z$ である 。
@@ -902,7 +901,7 @@ $x_i$ が独立同分布で $N_p(\mu, \Sigma)$ に従う場合 ($i=1, \dots, n$)
 \begin{itemize}
     \item $n=1$ の行列 $Z$ は、ただ1つの要素 $z_{11}$ からなる行列です。$Z=(z_{11})$
     \item このとき、行列式 $|Z|=z_{11}$ です。
-    \item $z_{11}$ は $N(0,1)$ という正規分布に従うランダムな値です。正規分布は連続的な分布なので、ある特定の値（この場合は0）をちょうど取る確率はゼロです。例えば、身長がぴったり170.000...cmになる確率はゼロ、というのと同じです。
+    \item $z_{11}$ は $N(0,1)$ という正規分布に従うランダムな値です。正規分布は連続的な分布なので、\\ある特定の値（この場合は0）をちょうど取る確率はゼロです。\\(例えば、身長がぴったり170.000...cmになる確率はゼロ、というのと同じです。)
     \item だから、$P(|Z|=0)=0$ は $n=1$ の場合に真です。
 \end{itemize}
 \end{frame}
@@ -948,7 +947,7 @@ $x_i$ が独立同分布で $N_p(\mu, \Sigma)$ に従う場合 ($i=1, \dots, n$)
     \[ E[P(z_{11}=z_{12}^{\prime}Z_{22}^{-1}z_{21},|Z_{22}|\ne0|z_{12},z_{21},Z_{22})] \]
     \item これは、$(z_{12},z_{21},Z_{22})$ の値がすでに決まっているという条件下で、$z_{11}$ が特定の値 $z_{12}^{\prime}Z_{22}^{-1}z_{21}$ を取る確率を計算し、その期待値を取る、ということです。
     \item ここで、$z_{11}$ は $N(0,1)$ に従う独立な確率変数です。そして、$z_{12}^{\prime}Z_{22}^{-1}z_{21}$ という値は、$(z_{12},z_{21},Z_{22})$ が決まれば定数になります。
-    \item 前述の $n=1$ の場合と同じ理由で、連続分布に従う確率変数（$z_{11}$）が、ある特定の定数とぴったり一致する確率はゼロです。
+    \item 前述の $n=1$ の場合と同じ理由で、連続分布に従う確率変数（$z_{11}$）が、\\ある特定の定数とぴったり一致する確率はゼロです。
     \item したがって、$P(z_{11}=z_{12}^{\prime}Z_{22}^{-1}z_{21}|z_{12},z_{21},Z_{22})=0$ です。
     \item この条件付き確率が0なので、その期待値も0になります。
     \item これにより、$P(|Z|=0,|Z_{22}|\ne0)=0$ です。
@@ -964,15 +963,6 @@ $x_i$ が独立同分布で $N_p(\mu, \Sigma)$ に従う場合 ($i=1, \dots, n$)
 \end{itemize}
 \end{frame}
 
-\begin{frame}{7.3 Wishart分布の性質 - 命題}
-\begin{block}{命題 7.3}
-$W \sim W_p(m)$ かつ $m \ge p$ ならば、$W$ は確率1で非特異である。
-\end{block}
-
-$W \overset{d}{=} Z'Z$ であり、$Z' = (z_1, \dots, z_m)$ かつ $z_i$ は独立同分布の $N_p(0, I)$ に従う。\\
-$\text{rank } W \overset{d}{=} \text{rank } Z'Z = \text{rank } Z \ge \text{rank } (z_1, \dots, z_p)$ は確率1で $p$ となる。\\
-したがって、$\text{rank } W$ は確率1で $p$ となる。
-\end{frame}
 
 \begin{frame}{7.3 Wishart分布の性質 - 補題}
 \begin{block}{補題 7.1}
@@ -1015,7 +1005,7 @@ P(|Z|=t) &= E[P(z_{11}=z_{12}^{\prime}Z_{22}^{-1}z_{21}+\frac{t}{|Z_{22}|},|Z_{2
 
 
 \begin{frame}
-\frametitle{系 7.1の証明における項の増加理由}
+\frametitle{系 7.1の証明における項の増加理由 (1/2)}
 \begin{itemize}
     \item 系7.1の証明における $P(|Z|=t)$ の式で、$\frac{t}{|Z_{22}|}$ の項が増える理由についてですね。
     \item これは、行列式に関する同じブロック行列の公式を使用し、$|Z|=t$ という条件を式に組み込んでいるためです。
@@ -1024,7 +1014,13 @@ P(|Z|=t) &= E[P(z_{11}=z_{12}^{\prime}Z_{22}^{-1}z_{21}+\frac{t}{|Z_{22}|},|Z_{2
     \item そして、右下のブロック $Z_{22}$ が正則である場合（$|Z_{22}|\ne0$ の場合）の行列式の公式を使います。
     \[ |Z|=|Z_{22}|\cdot(z_{11}-z_{12}^{\prime}Z_{22}^{-1}z_{21}) \]
     \item 系7.1では、$P(|Z|=t)$ という確率を求めています。つまり、行列式 $|Z|$ が特定の値 $t$ になる確率です。
-    \item したがって、$|Z|=t$ という条件を上記の公式に代入すると、次のようになります。
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{系 7.1の証明における項の増加理由 (2/2)}
+\begin{itemize}
+    \item したがって、$|Z|=t$ という条件を前のフレームの公式に代入すると、次のようになります。
     \[ t=|Z_{22}|\cdot(z_{11}-z_{12}^{\prime}Z_{22}^{-1}z_{21}) \]
     \item この式を $z_{11}$ について解くと、
     \[ z_{11}-z_{12}^{\prime}Z_{22}^{-1}z_{21}=\frac{t}{|Z_{22}|} \]
