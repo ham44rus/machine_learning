@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.8.19)  22 JUL 2025 13:11
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.8.19)  22 JUL 2025 13:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -573,10 +573,20 @@ File: 図2_エネルギーの時間変化.jpg Graphic file (type bmp)
 <図2_エネルギーの時間変化.jpg>
 [4] [5] [6] [7
 
-] [8] [9] [10])
-*quit
+] [8] [9] [10] [11])
+*
+(Please type a command or say `\end')
+*\end
 
-*D
+*^^[[A
+! Text line contains an invalid character.
+<*> ^^[
+       [A
+? 
+
+*
+(Please type a command or say `\end')
+*\end
 
 *
 ! Emergency stop.
@@ -588,9 +598,9 @@ End of file on the terminal!
 Here is how much of TeX's memory you used:
  11145 strings out of 476683
  262599 string characters out of 5804047
- 2266018 words of memory out of 5000000
+ 2278018 words of memory out of 5000000
  31270 multiletter control sequences out of 15000+600000
  519469 words of font info for 95 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  72i,10n,77p,477b,2140s stack positions out of 10000i,1000n,20000p,200000b,200000s
-Output written on Numerical_Analysis_Final_Report.pdf (10 pages).
+Output written on Numerical_Analysis_Final_Report.pdf (11 pages).
