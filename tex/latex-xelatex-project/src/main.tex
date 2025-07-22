@@ -4,6 +4,9 @@
 \usepackage{graphicx}
 \usepackage{xcolor}
 
+% Define \tr as trace operator
+\newcommand{\tr}{\operatorname{tr}}
+
 % 日本語環境設定: CJKutf8とzxjafontを併用し、より多くの日本語文字をサポート
 \usepackage[ipaex]{zxjafont} % IPAexフォントを使用（IPAフォントの方が汎用的な場合もあります）
 \usepackage{CJKutf8} % \begin{CJK}...\end{CJK} 環境のために残します
@@ -374,30 +377,37 @@ Lehmann-Schefféの定理は、「もし、ある統計量 $T$ が完全かつ�
 \end{frame}
 
 \begin{frame}
-\frametitle{対数尤度関数の簡略化と最小化}
+\frametitle{対数尤度関数の簡略化と最小化 (1)}
 \begin{itemize}
     \item この対数尤度関数を $l(\bm{\Sigma},\bm{\mu})$ と表すとき、MLEを得るためには $l(\bm{\Sigma},\bm{\mu})$ を最大化する必要があります.
     \item ここで、定数項である $-\frac{np}{2}\text{ln}(2\pi)$ はパラメータ $\bm{\Sigma}$ や $\bm{\mu}$ に依存しないため、最大化には影響しません.
     \item したがって、最大化すべきは残りの項です:
     \[
-    l(\bm{\Sigma},\bm{\mu})\propto-\frac{n}{2}\text{ln}|\bm{\Sigma}|-\frac{1}{2}\text{tr}\left([V+n(\overline{\bm{x}}-\bm{\mu})(\overline{\bm{x}}-\bm{\mu})^{\prime}]\bm{\Sigma}^{-1}\right) \text{}
+    l(\bm{\Sigma},\bm{\mu})\propto-\frac{n}{2}\text{ln}|\bm{\Sigma}|-\frac{1}{2}\text{tr}\left([V+n(\overline{\bm{x}}-\bm{\mu})(\overline{\bm{x}}-\bm{\mu})^{\prime}]\bm{\Sigma}^{-1}\right)
     \]
     \item この式を最大化することは、符号を反転させて最小化することと同じです.
     \item そして、全体を $\frac{n}{2}$ で割っても最大化/最小化の結果は変わらないため、以下の式を最小化することになります:
-    \begin{align*}
-    &\frac{1}{n}\text{tr}\left([V+n(\overline{\bm{x}}-\bm{\mu})(\overline{\bm{x}}-\bm{\mu})^{\prime}]\bm{\Sigma}^{-1}\right)+\text{ln}|\bm{\Sigma}| \text{} \\
-    =&\frac{1}{n}\text{tr}(V\bm{\Sigma}^{-1})+\frac{1}{n}\text{tr}(n(\overline{\bm{x}}-\bm{\mu})(\overline{\bm{x}}-\bm{\mu})^{\prime}\bm{\Sigma}^{-1})+\text{ln}|\bm{\Sigma}| \text{} \\
-    =&\frac{1}{n}\text{tr}(V\bm{\Sigma}^{-1})+\text{tr}((\overline{\bm{x}}-\bm{\mu})(\overline{\bm{x}}-\bm{\mu})^{\prime}\bm{\Sigma}^{-1})+\text{ln}|\bm{\Sigma}| \text{} \\
-    =&\text{ln}|\bm{\Sigma}|+\text{tr}\frac{1}{n}V\bm{\Sigma}^{-1}+(\overline{\bm{x}}-\bm{\mu})^{\prime}\bm{\Sigma}^{-1}(\overline{\bm{x}}-\bm{\mu}) \quad \text{(7.2)} \text{}
-    \end{align*}
-    （最後の項はスカラーなので $\text{tr}$ を外すことができます 。）
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{対数尤度関数の簡略化と最小化 (2)}
+\begin{align*}
+&\frac{1}{n}\text{tr}\left([V+n(\overline{\bm{x}}-\bm{\mu})(\overline{\bm{x}}-\bm{\mu})^{\prime}]\bm{\Sigma}^{-1}\right)+\text{ln}|\bm{\Sigma}| \\
+=&\frac{1}{n}\text{tr}(V\bm{\Sigma}^{-1})+\frac{1}{n}\text{tr}(n(\overline{\bm{x}}-\bm{\mu})(\overline{\bm{x}}-\bm{\mu})^{\prime}\bm{\Sigma}^{-1})+\text{ln}|\bm{\Sigma}| \\
+=&\frac{1}{n}\text{tr}(V\bm{\Sigma}^{-1})+\text{tr}((\overline{\bm{x}}-\bm{\mu})(\overline{\bm{x}}-\bm{\mu})^{\prime}\bm{\Sigma}^{-1})+\text{ln}|\bm{\Sigma}| \\
+=&\text{ln}|\bm{\Sigma}|+\text{tr}\frac{1}{n}V\bm{\Sigma}^{-1}+(\overline{\bm{x}}-\bm{\mu})^{\prime}\bm{\Sigma}^{-1}(\overline{\bm{x}}-\bm{\mu}) \quad \text{(7.2)}
+\end{align*}
+\begin{itemize}
+    \item （最後の項はスカラーなので $\text{tr}$ を外すことができます。）
     \item この式は、テキストに示されている式 (7.2) と完全に一致します.
     \item したがって、この式を最小化する目的は、観測されたデータの下で、母集団パラメータである平均ベクトル $\bm{\mu}$ と共分散行列 $\bm{\Sigma}$ が最も「もっともらしい」値（すなわち最尤推定値）を見つけるためです.
 \end{itemize}
 \end{frame}
 
-\begin{frame}
-\frametitle{ステップ1: $\hat{\bm{\mu}}=\overline{\bm{x}}$ の特定と最後の項の除去}
+\begin{frame}[t]
+\frametitle{ステップ1: $\hat{\bm{\mu}}=\overline{\bm{x}}$ の特定と最後の項の除去（まとめて解説）}
+\small
 \begin{itemize}
     \item テキストにあるように、「（最後の項は $\ge0$ なので）$\hat{\bm{\mu}}=\overline{\bm{x}}$ であることは明らか」です。
     \item この「最後の項」とは、$+(\overline{\bm{x}}-\bm{\mu})^{\prime}\bm{\Sigma}^{-1}(\overline{\bm{x}}-\bm{\mu})$ のことです。
@@ -406,11 +416,13 @@ Lehmann-Schefféの定理は、「もし、ある統計量 $T$ が完全かつ�
     \item $(\overline{\bm{x}}-\bm{\mu})^{\prime}\bm{\Sigma}^{-1}(\overline{\bm{x}}-\bm{\mu})=0$ となるのは、$\overline{\bm{x}}-\bm{\mu}=0$ のとき、すなわち $\bm{\mu}=\overline{\bm{x}}$ のときです。
     \item したがって、$\bm{\mu}$ に関する最尤推定値 $\hat{\bm{\mu}}$ は $\overline{\bm{x}}$ であると直ちに分かります。
     \item $\hat{\bm{\mu}}=\overline{\bm{x}}$ を元の式に代入すると、最後の項は0になります。
-    \begin{align*}
-    &\text{ln}|\bm{\Sigma}|+\text{tr}\frac{1}{n}V\bm{\Sigma}^{-1}+(\overline{\bm{x}}-\overline{\bm{x}})^{\prime}\bm{\Sigma}^{-1}(\overline{\bm{x}}-\overline{\bm{x}}) \\
-    =&\text{ln}|\bm{\Sigma}|+\text{tr}\frac{1}{n}V\bm{\Sigma}^{-1}+0^{\prime}\bm{\Sigma}^{-1}0 \\
-    =&\text{ln}|\bm{\Sigma}|+\text{tr}\frac{1}{n}V\bm{\Sigma}^{-1}
-    \end{align*}
+\end{itemize}
+\begin{align*}
+&\text{ln}|\bm{\Sigma}|+\text{tr}\frac{1}{n}V\bm{\Sigma}^{-1}+(\overline{\bm{x}}-\overline{\bm{x}})^{\prime}\bm{\Sigma}^{-1}(\overline{\bm{x}}-\overline{\bm{x}}) \\
+=&\text{ln}|\bm{\Sigma}|+\text{tr}\frac{1}{n}V\bm{\Sigma}^{-1}+0^{\prime}\bm{\Sigma}^{-1}0 \\
+=&\text{ln}|\bm{\Sigma}|+\text{tr}\frac{1}{n}V\bm{\Sigma}^{-1}
+\end{align*}
+\begin{itemize}
     \item これにより、$\bm{\Sigma}$ の最尤推定値 $\hat{\bm{\Sigma}}$ を得るためには、この簡略化された式を最小化すればよいことになります。
 \end{itemize}
 \end{frame}
@@ -432,10 +444,10 @@ Lehmann-Schefféの定理は、「もし、ある統計量 $T$ が完全かつ�
     &=\text{ln}|V^{-1}(V\bm{\Sigma})| \\
     &=\text{ln}|nV^{-1}|+\text{ln}|\frac{1}{n}V\bm{\Sigma}|
     \end{align*}
-    \item しかし、テキストの変形は異なるアプローチを取っています。テキストの変形は、以下のように示されています:
 \end{itemize}
 \end{frame}
 \begin{frame}
+    \frametitle{式変形のまとめ (1)}
     \begin{itemize}
         \item 
         \[
@@ -443,10 +455,15 @@ Lehmann-Schefféの定理は、「もし、ある統計量 $T$ が完全かつ�
         \]
         \item これは、以下の恒等式（定数を追加・削除しても最小化の問題は変わらない）に基づいています。
         \[
-        \text{ln}|\bm{\Sigma}|=\text{ln}|nV^{-1}\bm{\Sigma}|-\text{ln}|nV^{-1}|
+        \text{ln}|\bm{\Sigma}| = \text{ln}|nV^{-1}\bm{\Sigma}| - \text{ln}|nV^{-1}|
         \]
         \item ここで、$\text{ln}|nV^{-1}|$ は $\bm{\Sigma}$ に依存しない定数です。
         \item したがって、最小化すべき式 $\text{ln}|\bm{\Sigma}|+\text{tr}\frac{1}{n}V\bm{\Sigma}^{-1}$ は、定数項 $\text{ln}|nV^{-1}|$ を追加（または削除）しても、$\bm{\Sigma}$ の最適値は変わりません。
+    \end{itemize}
+\end{frame}
+\begin{frame}
+    \frametitle{式変形のまとめ (2)}
+    \begin{itemize}
         \item
         \begin{align*}
         &\text{ln}|\bm{\Sigma}|+\text{tr}\frac{1}{n}V\bm{\Sigma}^{-1} \\
@@ -459,6 +476,190 @@ Lehmann-Schefféの定理は、「もし、ある統計量 $T$ が完全かつ�
         \]
     \end{itemize}
 \end{frame}
+
+\begin{frame}
+\frametitle{ステップ3: $\bm{\Sigma}$ の MLE の最終導出}
+定数 $\ln|nV^{-1}|$ は $\bm{\Sigma}$ の最適化には影響しません。条件 $n-1 \ge p$ は $V$ が確率1で非特異（正則）であることを保証します（これは後の系7.2で証明されます）。
+
+変数変換 $T = nV^{-1}\bm{\Sigma}$ を導入すると、最小化すべき式は
+\[
+\ln|T| + \mathrm{tr}(T^{-1})
+\]
+となります。この式は $T$ のすべての固有値が1のとき最小値をとります。したがって、$\hat{\bm{\Sigma}} = \frac{1}{n}V$ が最尤推定値となります。
+\end{frame}
+
+\begin{frame}
+\frametitle{固有値による表現}
+\begin{itemize}
+    \item 対称行列 $T$ の場合、そのトレースと行列式は固有値 $\lambda_1,\lambda_2,\dots,\lambda_p$ を用いて次のように表現できます。
+    \begin{itemize}
+        \item $\tr(T)=\sum_{j=1}^{p}\lambda_j$
+        \item $|T|=\prod_{j=1}^{p}\lambda_j$
+    \end{itemize}
+    \item したがって、$\text{ln}|T|+\tr~T^{-1}$ は、固有値の関数として次のように書くことができます。
+    \begin{itemize}
+        \item $\text{ln}|T|=\text{ln}(\prod_{j=1}^{p}\lambda_j)=\sum_{j=1}^{p}\text{ln}(\lambda_j)$
+        \item $\tr(T^{-1})=\sum_{j=1}^{p}\frac{1}{\lambda_j}$ （$T$ の固有値が $\lambda_j$ なら、$T^{-1}$ の固有値は $1/\lambda_j$）
+    \end{itemize}
+    \item これにより、最小化すべき関数は、各固有値 $\lambda_j$ の関数として次のように分解できます。
+    \[ f(\lambda_1,\dots,\lambda_p)=\sum_{j=1}^{p}\left(\text{ln}(\lambda_j)+\frac{1}{\lambda_j}\right) \]
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{各固有値ごとの最小化 (1)}
+\begin{itemize}
+    \item この関数は、各固有値 $\lambda_j$ について独立に最小化できます。
+    \[ g(\lambda)=\text{ln}(\lambda)+\frac{1}{\lambda} \]
+    \item この関数 $g(\lambda)$ を最小化するために、$\lambda$ について微分し、導関数を0と置きます。
+    \begin{align*}
+        g^{\prime}(\lambda)&=\frac{d}{d\lambda}(\text{ln}(\lambda)+\lambda^{-1}) \\
+        g^{\prime}(\lambda)&=\frac{1}{\lambda}-\frac{1}{\lambda^2}
+    \end{align*}
+    \item $g^{\prime}(\lambda)=0$ とすると、
+    \begin{align*}
+        \frac{1}{\lambda}-\frac{1}{\lambda^2}&=0 \\
+        \frac{1}{\lambda}&=\frac{1}{\lambda^2} \\
+        \lambda^2&=\lambda \\
+        \lambda(\lambda-1)&=0
+    \end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{各固有値ごとの最小化 (2)}
+\begin{itemize}
+    \item $\lambda=0$ または $\lambda=1$。
+    \item しかし、行列式 $|T|$ は非ゼロでなければならない（ウィシャート分布の文脈で $V$ は非特異なので）ため、固有値 $\lambda$ は0ではありえません。
+    \item したがって、唯一の極値点は $\lambda=1$ です。
+    \item 二階微分を調べて、これが最小値であることを確認します。
+    \begin{align*}
+        g^{\prime\prime}(\lambda)&=\frac{d}{d\lambda}(\lambda^{-1}-\lambda^{-2}) \\
+        g^{\prime\prime}(\lambda)&=-\lambda^{-2}+2\lambda^{-3}=-\frac{1}{\lambda^2}+\frac{2}{\lambda^3}
+    \end{align*}
+    \item $\lambda=1$ のとき、$g^{\prime\prime}(1)=-1+2=1>0$ なので、これは極小値であり、唯一の最小値です。
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{各固有値ごとの最小化 (3) および結論}
+\begin{itemize}
+    \item 関数 $f(\lambda_1,\dots,\lambda_p)$ は、すべての固有値 $\lambda_j$ が 1 のときに最小値を取ります。
+    \item すべての固有値が1である対称行列は、単位行列 $I$ だけです。
+    \item よって、$T = I$ のとき最小値となり、$nV^{-1}\hat{\bm{\Sigma}} = I$、すなわち $\hat{\bm{\Sigma}} = \frac{1}{n}V$ となります。
+    \item これが多変量正規分布における共分散行列の最尤推定値です。
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{正規分布のMLE特性と場所族}
+\begin{block}{備考}
+Gaussに遡るよく知られた結果として、$\mathbb{R}$ 上の確率密度関数 $f(x-\theta)$ で、$x$ が $\theta$ の最尤推定量 (MLE) となる唯一の場所族は正規密度に由来します。\\
+この正規密度のMLE特性は $\mathbb{R}^p$ でも成り立ちます [Stadje (1993)]。
+すなわち、$f(x-\theta)$ という形の密度で、$x$ が常に $\theta$ のMLEとなるのは正規分布の場合のみです。
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{$\overline{\bm{x}}\sim N_{p}(\bm{\mu},\frac{1}{n}\bm{\Sigma})$ が「明らか」な理由 (1)}
+\begin{itemize}
+    \item この記述が「明らか」とされるのは、多変量正規分布の線形変換と標本平均の性質に関する標準的な結果だからです。
+    \item \textbf{前提}: 各観測ベクトル $\bm{x}_i$ は独立同分布（i.i.d.）で $\bm{x}_i\sim N_{p}(\bm{\mu},\bm{\Sigma})$ に従います。
+    \item \textbf{標本平均の定義}: 標本平均 $\overline{\bm{x}}$ は、$\overline{\bm{x}}=\frac{1}{n}\sum_{i=1}^{n}\bm{x}_i$ です。
+    \item \textbf{正規分布の和の性質}:
+    \begin{itemize}
+        \item 独立な正規分布に従う確率変数の和も正規分布に従います。
+        \item $E[\sum\bm{x}_i]=\sum E[\bm{x}_i]=\sum\bm{\mu}=n\bm{\mu}$。
+        \item $\text{Cov}(\sum\bm{x}_i)=\sum\text{Cov}(\bm{x}_i)=\sum\bm{\Sigma}=n\bm{\Sigma}$ （独立性の仮定による）。
+        \item したがって、$\sum_{i=1}^{n}\bm{x}_i\sim N_{p}(n\bm{\mu},n\bm{\Sigma})$ です。
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{$\overline{\bm{x}}\sim N_{p}(\bm{\mu},\frac{1}{n}\bm{\Sigma})$ が「明らか」な理由 (2)}
+\begin{itemize}
+    \item \textbf{正規分布の定数倍の性質}: $c\cdot\bm{Y}\sim N_{p}(c\cdot E[\bm{Y}],c^2\cdot\text{Cov}(\bm{Y}))$ です。
+    \begin{itemize}
+        \item ここで、$\bm{Y}=\sum\bm{x}_i$、$c=\frac{1}{n}$ とすると、
+        \begin{align*}
+        \overline{\bm{x}}=\frac{1}{n}\sum\bm{x}_i&\sim N_{p}\left(\frac{1}{n}(n\bm{\mu}),\left(\frac{1}{n}\right)^2(n\bm{\Sigma})\right) \\
+        \overline{\bm{x}}&\sim N_{p}\left(\bm{\mu},\frac{1}{n^2}n\bm{\Sigma}\right) \\
+        \overline{\bm{x}}&\sim N_{p}\left(\bm{\mu},\frac{1}{n}\bm{\Sigma}\right)
+        \end{align*}
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{標本平均の変換}
+\begin{itemize}
+    \item $\overline{\bm{x}}$ は $\bm{x}_i$ の標本平均です。
+    \[
+    \overline{\bm{x}} = \frac{1}{n}\sum_{i=1}^{n}\bm{x}_i
+    \]
+    \item $\bm{x}_i = A\bm{z}_i + \bm{\mu}$ を代入すると、
+    \begin{align*}
+        \overline{\bm{x}} &= \frac{1}{n}\sum_{i=1}^{n}(A\bm{z}_i + \bm{\mu}) \\
+        &= \frac{1}{n}\left(A\sum_{i=1}^{n}\bm{z}_i + \sum_{i=1}^{n}\bm{\mu}\right) \\
+        &= \frac{1}{n}\left(A(n\overline{\bm{z}}) + n\bm{\mu}\right) \\
+        &= A\overline{\bm{z}} + \bm{\mu}
+    \end{align*}
+    \item したがって、$\overline{\bm{x}}$ の分布は $A\overline{\bm{z}} + \bm{\mu}$ の分布と一致します。
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{標本分散共分散行列の変換 (1/2)}
+\begin{itemize}
+    \item $S_x$ は $\bm{x}_i$ の標本分散共分散行列です。
+    \[
+    (n-1)S_x = \sum_{i=1}^{n} (\bm{x}_i - \overline{\bm{x}})(\bm{x}_i - \overline{\bm{x}})'
+    \]
+    \item $\bm{x}_i - \overline{\bm{x}}$ の部分を変換します。
+    \begin{align*}
+        \bm{x}_i - \overline{\bm{x}} &= (A\bm{z}_i + \bm{\mu}) - (A\overline{\bm{z}} + \bm{\mu}) \\
+        &= A\bm{z}_i - A\overline{\bm{z}} \\
+        &= A(\bm{z}_i - \overline{\bm{z}})
+    \end{align*}
+    \item これを標本分散共分散行列の定義に代入します。
+    \[
+    (n-1)S_x = \sum_{i=1}^{n} (A(\bm{z}_i - \overline{\bm{z}}))(A(\bm{z}_i - \overline{\bm{z}}))'
+    \]
+    \[
+    = \sum_{i=1}^{n} A(\bm{z}_i - \overline{\bm{z}})(\bm{z}_i - \overline{\bm{z}})'A'
+    \]
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{標本共分散行列の変換 (1)}
+\begin{itemize}
+    \item 標本共分散行列 $\bm{S}$ は
+    \[
+    (n-1)\bm{S_z} = \sum_{i=1}^{n} (\bm{x}_i - \overline{\bm{x}})(\bm{x}_i - \overline{\bm{x}})'
+    \]
+    で定義されます。
+    \item $\bm{x}_i = A\bm{z}_i + \bm{\mu}$ および $\overline{\bm{x}} = A\overline{\bm{z}} + \bm{\mu}$ を代入すると、
+    \begin{align*}
+    \bm{x}_i - \overline{\bm{x}} &= A(\bm{z}_i - \overline{\bm{z}})
+    \end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{標本共分散行列の変換 (2)}
+\begin{itemize}
+    \item よって、
+    \begin{align*}
+    (n-1)\bm{S} &= \sum_{i=1}^{n} A(\bm{z}_i - \overline{\bm{z}})(\bm{z}_i - \overline{\bm{z}})'A' \\
+    &= A \left( \sum_{i=1}^{n} (\bm{z}_i - \overline{\bm{z}})(\bm{z}_i - \overline{\bm{z}})' \right) A' \\
+    &= A (n-1)\bm{S}_z A'
+    \end{align*}
+    \item したがって、$\bm{S}$ の分布は $A\bm{S}_zA'$ の分布と一致します。
+\end{itemize}
+\end{frame}
+
 \begin{frame}{7.3 Wishart分布の性質 - 命題}
 \begin{block}{命題 7.3}
 $W \sim W_p(m)$ かつ $m \ge p$ ならば、$W$ は確率1で非特異である。

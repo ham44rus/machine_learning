@@ -1,22 +1,51 @@
-\documentclass[aspectratio=169]{beamer}
-\usepackage{amsmath, amssymb, bm}
-\usepackage{mathtools}
+\documentclass{beamer}
+\usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage{listings}
 \usepackage{xcolor}
+\usepackage{url} % URLを扱うために必要
+\usepackage{array} % 表のための機能を追加
+\usepackage{booktabs} % 表のための上下の罫線とmidruleを提供
+\usepackage{multirow} % 表のセルを複数行に結合するために必要
+\usepackage{subcaption} % サブフィギュアを使用するために必要
+\usepackage{float} % 図の位置制御のためのパッケージを追加
+\usepackage{amsthm} % block環境を使うために必要
+\usepackage{bm} % 数式内のボールド体のために必要
 
-% Define \tr as trace operator
-\newcommand{\tr}{\operatorname{tr}}
+% LaTeXが\midruleを認識できない問題を解決するため、booktabsを再度確認
+\makeatletter
+\@ifpackageloaded{booktabs}{}{\usepackage{booktabs}}
+\makeatother
 
-% 日本語環境設定: CJKutf8とzxjafontを併用し、より多くの日本語文字をサポート
-\usepackage[ipaex]{zxjafont} % IPAexフォントを使用（IPAフォントの方が汎用的な場合もあります）
-\usepackage{CJKutf8} % \begin{CJK}...\end{CJK} 環境のために残します
+% 日本語環境設定 (XeLaTeX用)
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{Hiragino Sans} % macOSの日本語フォントに変更
+\setCJKmonofont{Hiragino Sans} % モノスペースフォントも設定
+\setmainfont{Hiragino Sans} % メインフォントにもUnicodeをサポートするフォントを設定
+\setmonofont{Hiragino Sans} % モノスペースフォントにもUnicodeをサポートするフォントを設定
 
-\usetheme{Madrid}
-\usecolortheme{default}
-\setbeamertemplate{navigation symbols}{}
+% リスティング設定
+\lstset{
+    language=Matlab, % デフォルト言語をMatlabに設定
+    backgroundcolor=\color{white},
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue}\bfseries,
+    commentstyle=\color{green!60!black},
+    stringstyle=\color{red},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,
+    numbersep=5pt,
+    frame=single,
+    breaklines=true,
+    showstringspaces=false,
+    captionpos=b
+}
 
 \title{Wishart分布とその性質}
-\subtitle{多変量正規分布の推定とBox-Cox変換}
+%\subtitle{多変量正規分布の推定とBox-Cox変換}
 \author{山北倫太郎}
 \date{\today}
 
@@ -27,9 +56,7 @@
 % 今回は文字化けリスクを減らすため、コメントアウトしています。
 % \begin{CJK}{UTF8}{min} 
 
-\begin{frame}
-\titlepage
-\end{frame}
+\frame{\titlepage}
 
 \begin{frame}{目次}
 \tableofcontents
@@ -79,11 +106,11 @@
 
 \begin{frame}{1行目}
 確率変数ベクトル $X = (x_1, \dots, x_p)'$ が平均ベクトル $\mu$ と共分散行列 $\Sigma$ を持つ多変量正規分布に従う場合、その確率密度関数 $f(x)$ は次のように表される。
-\begin{block}{p次元多変量正規分布の確率密度関数 (p.d.f.)}
+\begin{theorem}{p次元多変量正規分布の確率密度関数 (p.d.f.)}
 \begin{equation*}
 f(x) = (2\pi)^{-p/2} |\Sigma|^{-1/2} \exp\left(-\frac{1}{2}(x - \mu)'\Sigma^{-1}(x - \mu)\right)
 \end{equation*}
-\end{block}
+\end{theorem}
 \begin{itemize}
 \item ここで、$x$ は確率変数ベクトル $X$ がとりうる値を示す $p$ 次元の列ベクトルである。
 \item $\mu$ は、各確率変数の平均値を要素とする $p$ 次元の平均ベクトルである。
